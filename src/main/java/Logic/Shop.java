@@ -1,5 +1,7 @@
 package Logic;
 
+import Logic.FoodProducts.Food;
+
 import java.util.ArrayList;
 import java.util.List;
 

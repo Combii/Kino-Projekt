@@ -13,17 +13,21 @@ public class FoodCategoryList {
 
 
     public boolean addFood(String foodName, double price, String foodCategory){
+
+        //Tjek om foodName og foodCategory findes hvis den gør return false
         for (FoodList foodList : foodCategoryList) {
             for(Food food : foodList.foodList){
                 if(food.getName().equals(foodName) && foodList.foodListCategory.equals(foodCategory)){
                     return false;
                 }
             }
+            //Hvis foodCategory ikke findes, tilføj FoodList instance til foodCategoryList og tilføj foodName & price
             if(!foodList.foodListCategory.equals(foodCategory)){
                 foodCategoryList.add(new FoodList(foodCategory));
                 foodCategoryList.get(foodCategory.length()-1).addFoodToList(foodName,price);
                 return true;
             }
+            //Hvis foodCategory findes, tilføj foodName og price
             if(foodList.foodListCategory.equals(foodCategory)){
                 foodList.addFoodToList(foodName,price);
                 return true;

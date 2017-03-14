@@ -1,5 +1,7 @@
 package Logic;
 
+import Logic.FoodProducts.Food;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Shop {
 
 List<Food> foodShopingList = new ArrayList<Food>();
 List<Ticket> ticketShopingList = new ArrayList<Ticket>();
+
 
 
 

@@ -1,10 +1,7 @@
-package Logic;
+package main.java.Logic;
 
 /**
- * Created by David Stovlbaek
- * 14 March 2017.
+ * Created by jakob on 14/03/2017.
  */
-public interface Employee {
-
-
+public class Employee {
 }

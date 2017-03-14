@@ -1,6 +1,6 @@
-package Logic;
+package BusinessLogic;
 
-import Logic.FoodProducts.Food;
+import BusinessLogic.FoodProducts.Food;
 
 import java.util.ArrayList;
 import java.util.List;

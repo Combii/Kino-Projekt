@@ -1,4 +1,4 @@
-package Logic;
+package BusinessLogic;
 
 import java.util.List;
 

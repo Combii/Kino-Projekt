@@ -1,4 +1,4 @@
-package Logic.FoodProducts;
+package BusinessLogic.FoodProducts;
 
 import java.util.ArrayList;
 import java.util.List;

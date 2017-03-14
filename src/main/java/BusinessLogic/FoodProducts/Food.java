@@ -1,4 +1,4 @@
-package Logic.FoodProducts;
+package BusinessLogic.FoodProducts;
 
 /**
  * Created by David Stovlbaek

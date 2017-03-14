@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Kino Aflevering" />
+        <module name="Kino-Projekt" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Kino Aflevering" target="1.5" />
+      <module name="Kino-Projekt" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

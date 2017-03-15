@@ -5,6 +5,9 @@ public class Seat {
 
     private int number;
 
+    public Seat(int number) {
+        this.number = number;
+    }
 
     public int getNumber() {
         return number;
@@ -12,5 +15,12 @@ public class Seat {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "number=" + number +
+                '}';
     }
 }

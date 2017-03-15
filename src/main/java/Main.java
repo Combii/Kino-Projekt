@@ -6,5 +6,9 @@ public class Main {
 
     public static void main(String[] args){
 
+        Theater t = new BigTheater();
+
+        System.out.println(t);
+
     }
 }

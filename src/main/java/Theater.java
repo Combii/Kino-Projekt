@@ -1,31 +1,43 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by BorisGrunwald on 14/03/2017.
  */
-public class Theater {
+public abstract class Theater {
 
     private List<Movie> movies;
-    private List<Seat> seats;
-    private int seatSize;
+    private List<List<Seat>> rowsList;
 
-    public Theater(List<Movie> movies, int seatSize) {
-        this.movies = movies;
-        addSeats(seatSize);
-        this.seatSize = seatSize;
+    public Theater() {
+    }
+
+    public Theater(int rows, int seats) {
+        rowsList = new ArrayList<List<Seat>>();
+        addSeats(rows, seats);
     }
 
     public void addMovie(Movie m) {
         movies.add(m);
     }
 
-    private void addSeats(int size){
-        for(int i = 0; i < size; i++){
-            Seat s = new Seat();
-            s.setNumber(i);
-            seats.add(s);
+    private void addSeats(int rows, int seats) {
+
+        for (int i = 0; i <= rows; i++) {
+            List<Seat> seatList = new ArrayList<Seat>();
+            for (int j = 0; j <= seats; j++) {
+                seatList.add(new Seat(j));
+            }
+            rowsList.add(seatList);
 
         }
     }
 
+    @Override
+    public String toString() {
+        return "Theater{" +
+                "movies=" + movies +
+                ", rowsList=" + rowsList +
+                '}';
+    }
 }

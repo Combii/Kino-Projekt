@@ -1,4 +1,4 @@
-package main.java.Logic;
+package Logic;
 
 /**
  * Created by David Stovlbaek
@@ -6,6 +6,6 @@ package main.java.Logic;
  */
 public class Salesmen implements EmployeeInterface {
 
-
+private char role = 's';
 
 }

@@ -1,4 +1,4 @@
-package main.java.Logic;
+package Logic;
 
 /**
  * Created by BorisGrunwald on 14/03/2017.

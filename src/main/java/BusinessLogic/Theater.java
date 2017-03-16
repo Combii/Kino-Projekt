@@ -1,9 +1,6 @@
-<<<<<<< HEAD:src/main/java/Theater.java
-import java.util.ArrayList;
-=======
-package BusinessLogic;
 
->>>>>>> master:src/main/java/BusinessLogic/Theater.java
+package BusinessLogic;
+import java.util.ArrayList;
 import java.util.List;
 
 /**

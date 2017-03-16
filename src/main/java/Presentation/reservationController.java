@@ -1,9 +1,14 @@
+package Presentation;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by Olivi on 16-03-2017.
@@ -19,4 +24,7 @@ public class reservationController implements Initializable{
         stage.show();
     }
 
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

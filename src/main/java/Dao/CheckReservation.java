@@ -18,7 +18,9 @@ public class CheckReservation {
 
 
             int seatNumber = seat.getNumber();
-            seat.get
+            int seatRow = seat.getRow();
+
+
 
 
 

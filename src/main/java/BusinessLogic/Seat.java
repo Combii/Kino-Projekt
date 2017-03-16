@@ -35,6 +35,14 @@ public class Seat {
         return list;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
     @Override
     public String toString() {
         return "Seat{" +

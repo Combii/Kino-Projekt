@@ -24,7 +24,7 @@ public class CheckReservation {
             int theater = seat.getTheater();
 
 
-            PreparedStatement ps = conn.prepareStatement("SELECT isReserved FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"';");
+            PreparedStatement ps = conn.prepareStatement("SELECT isReserved FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"' AND TheaterID ='"+ theater +"';");
             ResultSet rs = ps.executeQuery();
             rs.next();
             int check = rs.getInt(1);

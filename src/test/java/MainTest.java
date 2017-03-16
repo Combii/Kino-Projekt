@@ -7,10 +7,10 @@ import org.junit.Test;
  */
 public class MainTest extends TestCase {
 
-    @Test
+    /*@Test
     public void testJunitTest() throws Exception {
         assertEquals(Main.junitTest(), true);
 
-    }
+    }*/
 
 }

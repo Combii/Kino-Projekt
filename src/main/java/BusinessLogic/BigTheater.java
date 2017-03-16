@@ -10,7 +10,7 @@ public class BigTheater extends Theater implements Reservation {
     private List<Seat> reservationList;
 
     public BigTheater() {
-        super(25, 16);
+        super(25, 16, 1);
     }
 
     public void setReservation(Seat seat) {

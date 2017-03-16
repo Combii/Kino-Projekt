@@ -9,11 +9,11 @@ import junit.framework.TestCase;
  */
 public class CheckReservationTest extends TestCase {
     public void testCheckSeatIsValid() throws Exception {
-        Seat seat = new Seat(1, 1);
+        Seat seat = new Seat(1, 1, 1);
         System.out.println(CheckReservation.checkSeatIsValid(seat));
         assertEquals(CheckReservation.checkSeatIsValid(seat), true);
 
-        Seat seat2 = new Seat(2, 2);
+        Seat seat2 = new Seat(2, 2, 1);
         System.out.println(CheckReservation.checkSeatIsValid(seat2));
         assertEquals(CheckReservation.checkSeatIsValid(seat2), false);
     }

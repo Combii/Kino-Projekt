@@ -9,37 +9,38 @@ import java.util.List;
 public abstract class Theater {
 
     private List<Movie> movies;
-    private List<List<Seat>> rowsList;
+    // liste af liste af sæder (række, nummer) giver ikke mening... v.1 => List<List<Seat>> rowsList;
+    private List<Seat> seatList;
 
     public Theater() {
     }
 
     public Theater(int rows, int seats) {
-        rowsList = new ArrayList<List<Seat>>();
-        addSeats(rows, seats);
+        seatList = new ArrayList<Seat>(); // ændret
+        //addSeats(rows, seats);
     }
 
     public void addMovie(Movie m) {
         movies.add(m);
     }
 
-    private void addSeats(int rows, int seats) {
+    /*private void addSeats(int rows, int seats) {
 
         for (int a = 0; a <= rows; a++) {
             List<Seat> seatList = new ArrayList<Seat>();
             for (int j = 0; j <= seats; j++) {
                 seatList.add(new Seat(a, j));
             }
-            rowsList.add(seatList);
+            seatList.add(seatList);
 
         }
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Theater{" +
                 "movies=" + movies +
-                ", rowsList=" + rowsList +
+                ", seatList=" + seatList +
                 '}';
     }
 }

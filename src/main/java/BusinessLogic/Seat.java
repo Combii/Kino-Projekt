@@ -21,11 +21,6 @@ public class Seat {
         this.row = row;
     }
 
-    public boolean isReserved(Seat seat) {
-        if(list.contains(seat)) {
-            return true;
-        } else return false;
-    }
 
     public void setReserved(Seat seat) {
 
@@ -34,5 +29,16 @@ public class Seat {
     //returnere seat...
     public Seat getSeat() {
         return this;
+    }
+
+    public List getList() {
+        return list;
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "list=" + list +
+                '}';
     }
 }

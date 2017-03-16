@@ -25,7 +25,7 @@ public abstract class Theater {
 
     private void addSeats(int rows, int seats) {
 
-        for (int i = 0; i <= rows; i++) {
+        for (int a = 0; a <= rows; a++) {
             List<Seat> seatList = new ArrayList<Seat>();
             for (int j = 0; j <= seats; j++) {
                 seatList.add(new Seat(j));

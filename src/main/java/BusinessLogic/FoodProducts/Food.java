@@ -1,4 +1,4 @@
-package Logic;
+package BusinessLogic.FoodProducts;
 
 /**
  * Created by David Stovlbaek
@@ -14,4 +14,12 @@ public class Food {
         this.price = price;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 }

@@ -27,8 +27,8 @@ public class CheckReservation {
             PreparedStatement ps = conn.prepareStatement("SELECT isReserved FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"';");
             ResultSet rs = ps.executeQuery();
             rs.next();
-            return rs.getBoolean(0);
-
+            int check = rs.getInt(1);
+            if(check == 1) return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }

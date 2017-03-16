@@ -2,6 +2,9 @@ package Dao;
 
 import BusinessLogic.Seat;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,13 +19,15 @@ public class CheckReservation {
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
 
+            Connection conn = database.getConnection();
 
             int seatNumber = seat.getNumber();
             int seatRow = seat.getRow();
 
-
-
-
+            PreparedStatement ps = conn.prepareStatement("SELECT isReserved FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"';");
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getBoolean(0);
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -14,11 +14,9 @@ import java.sql.SQLException;
 public class CheckReservation {
 
 
-
     public static boolean checkSeatIsValid(Seat seat){
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
-
             Connection conn = database.getConnection();
 
             int seatNumber = seat.getNumber();
@@ -28,6 +26,8 @@ public class CheckReservation {
             ResultSet rs = ps.executeQuery();
             rs.next();
             int check = rs.getInt(1);
+
+            //Return true if reserved
             if(check == 1) return true;
         } catch (SQLException e) {
             e.printStackTrace();

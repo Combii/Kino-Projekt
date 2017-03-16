@@ -10,7 +10,6 @@ public class MainTest extends TestCase {
     @Test
     public void testJunitTest() throws Exception {
         assertEquals(Main.junitTest(), true);
-
     }
 
 }

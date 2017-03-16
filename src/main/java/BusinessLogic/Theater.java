@@ -9,14 +9,17 @@ import java.util.List;
 public abstract class Theater {
 
     private List<Movie> movies;
+    private int theaterNumber;
+
     // liste af liste af sæder (række, nummer) giver ikke mening... v.1 => List<List<Seat>> rowsList;
     private List<Seat> seatList;
 
     public Theater() {
     }
 
-    public Theater(int rows, int seats) {
+    public Theater(int rows, int seats, int theaterNumber) {
         seatList = new ArrayList<Seat>(); // ændret
+        this.theaterNumber = theaterNumber;
         //addSeats(rows, seats);
     }
 
@@ -29,7 +32,7 @@ public abstract class Theater {
         for (int a = 0; a <= rows; a++) {
             List<Seat> seatList = new ArrayList<Seat>();
             for (int j = 0; j <= seats; j++) {
-                seatList.add(new Seat(a, j));
+                seatList.add(new Seat(a, j, theaterNumber));
             }
             seatList.add(seatList);
 

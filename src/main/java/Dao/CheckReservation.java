@@ -21,11 +21,14 @@ public class CheckReservation {
 
             int seatNumber = seat.getNumber();
             int seatRow = seat.getRow();
+            int theater = seat.getTheater();
+
 
             PreparedStatement ps = conn.prepareStatement("SELECT isReserved FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"';");
             ResultSet rs = ps.executeQuery();
             rs.next();
             int check = rs.getInt(1);
+
 
             //Return true if reserved
             if(check == 1) return true;

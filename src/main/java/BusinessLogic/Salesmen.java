@@ -1,4 +1,6 @@
-package Logic;
+package BusinessLogic;
+
+import Logic.EmployeeInterface;
 
 /**
  * Created by David Stovlbaek

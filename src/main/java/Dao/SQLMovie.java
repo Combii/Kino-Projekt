@@ -20,8 +20,6 @@ public class SQLMovie {
 
             ps.executeUpdate();
 
-            Compa
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -2,16 +2,25 @@ package Dao;
 
 import BusinessLogic.Seat;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.List;
 
 /**
  * Created by David Stovlbaek
  * 16 March 2017.
  */
 public class SQLCheckReservation {
+
+
+    public static List<Seat> getAllSeats(int TheaterNumber, Timestamp date){
+
+
+
+
+
+
+        return null;
+    }
 
 
     public static boolean checkSeatIsValid(Seat seat){

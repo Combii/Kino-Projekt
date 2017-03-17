@@ -1,5 +1,6 @@
 package BusinessLogic.Date;
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 /**
@@ -11,7 +12,7 @@ public class DateClass {
     public static String getTimeNow(){
         Calendar cal = Calendar.getInstance();
 
-        return "" + new java.sql.Timestamp(cal.getTimeInMillis());
+        return "" + new Timestamp(cal.getTimeInMillis());
     }
 
     public static void main(String[] args) {

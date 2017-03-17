@@ -9,7 +9,7 @@ import java.util.List;
  * Created by David Stovlbaek
  * 16 March 2017.
  */
-public class CheckReservation {
+public class SQLCheckReservation {
 
 
     public static List<Seat> getAllSeats(int TheaterNumber, Timestamp date){

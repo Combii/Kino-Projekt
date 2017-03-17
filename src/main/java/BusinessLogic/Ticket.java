@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/main/java/Logic/Ticket.java
 package Logic;
+=======
+package BusinessLogic;
+>>>>>>> master:src/main/java/BusinessLogic/Ticket.java
 
 import java.util.Date;
 

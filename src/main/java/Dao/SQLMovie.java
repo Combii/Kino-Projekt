@@ -11,25 +11,30 @@ import java.sql.SQLException;
  */
 public class SQLMovie {
 
-    public void addMovie(String name, int ageRestriction, double price, String genre) {
+    public void addMovie(String name, String ageRestriction, double price, String genre) {
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
             Connection conn = database.getConnection();
 
-            int seatNumber = seat.getNumber();
-            int seatRow = seat.getRow();
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + name + "','" + genre + "','" + ageRestriction + "','" + price + "');");
 
-            //PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie (" FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"';");
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            int check = rs.getInt(1);
+            ps.executeUpdate();
 
-            //Return true if reserved
-            if(check == 1) return true;
+            Compa
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+
+    }
+
+    public void deleteMovie(String name) throws SQLException {
+
+        SQLDatabase database = SQLDatabase.getDatabase();
+        Connection conn = database.getConnection();
+
+        PreparedStatement ps = conn.prepareStatement("DELETE FROM Movie WHERE movieName = '" + name + "';");
+
     }
 
 }

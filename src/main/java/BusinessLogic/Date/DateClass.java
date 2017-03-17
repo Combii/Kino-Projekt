@@ -15,6 +15,12 @@ public class DateClass {
         return "" + new Timestamp(cal.getTimeInMillis());
     }
 
+    public static Timestamp getTimeNowTimeStamp(){
+        Calendar cal = Calendar.getInstance();
+
+        return new Timestamp(cal.getTimeInMillis());
+    }
+
     public static void main(String[] args) {
         System.out.println(getTimeNow());
     }

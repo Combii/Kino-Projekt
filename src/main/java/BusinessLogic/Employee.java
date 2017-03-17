@@ -1,9 +1,10 @@
 package BusinessLogic;
 
 /**
- * Created by julieglasdam on 14/03/2017.
+ * Created by jakob on 14/03/2017.
  */
 public class Employee {
+
     private String name;
     private int ID;
     private double salary;
@@ -50,5 +51,4 @@ public class Employee {
     public char getRole(){
         return role;
     }
-
 }

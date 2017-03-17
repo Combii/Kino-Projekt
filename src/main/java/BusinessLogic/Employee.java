@@ -1,20 +1,19 @@
 package BusinessLogic;
 
 /**
- * Created by jakob on 14/03/2017.
+ * Created by julieglasdam on 14/03/2017.
  */
 public class Employee {
-
     private String name;
     private int ID;
     private double salary;
     private char role = 'e';
 
-    public Employee(){
+    public Employee() {
 
     }
 
-    public Employee (String name, int ID, double salary){
+    public Employee(String name, int ID, double salary) {
         this.name = name;
         this.ID = ID;
         this.salary = salary;
@@ -48,7 +47,8 @@ public class Employee {
     }
 
 
-    public char getRole(){
+    public char getRole() {
         return role;
     }
+
 }

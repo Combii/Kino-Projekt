@@ -1,5 +1,7 @@
 package Dao;
 
+import BusinessLogic.Movie;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,12 +13,12 @@ import java.sql.SQLException;
  */
 public class SQLMovie {
 
-    public void addMovie(String name, String ageRestriction, double price, String genre) {
+    public void addMovie(Movie toAdd) {
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
             Connection conn = database.getConnection();
 
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + name + "','" + genre + "','" + ageRestriction + "','" + price + "');");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + toAdd.getName() + "','" + toAdd.getGenre() + "','" + toAdd.getAgeRestriction() + "','" + toAdd.getPrice() + "');");
 
             ps.executeUpdate();
 
@@ -32,6 +34,12 @@ public class SQLMovie {
         Connection conn = database.getConnection();
 
         PreparedStatement ps = conn.prepareStatement("DELETE FROM Movie WHERE movieName = '" + name + "';");
+
+    }
+
+    public void getMovie(Movie m) {
+
+
 
     }
 

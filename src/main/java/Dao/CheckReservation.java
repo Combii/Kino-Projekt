@@ -2,10 +2,7 @@ package Dao;
 
 import BusinessLogic.Seat;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -15,7 +12,13 @@ import java.util.List;
 public class CheckReservation {
 
 
-    public static List<Seat> getAllSeats(int TheaterNumber){
+    public static List<Seat> getAllSeats(int TheaterNumber, Timestamp date){
+
+
+
+
+
+
         return null;
     }
 

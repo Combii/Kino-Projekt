@@ -9,5 +9,6 @@ import Logic.EmployeeInterface;
 public class Salesmen implements EmployeeInterface {
 
 
+private char role = 's';
 
 }

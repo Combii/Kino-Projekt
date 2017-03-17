@@ -2,7 +2,7 @@ package Dao;
 
 import java.sql.*;
 
-public class SQLDatabase {
+public class SQLDatabase implements SQLDatabaseInterface {
 
     private static String url = "jdbc:mysql://sql7.freemysqlhosting.net:3306/";
     private static String dbName = "sql7163805";

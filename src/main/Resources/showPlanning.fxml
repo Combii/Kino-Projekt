@@ -40,7 +40,7 @@
             </Button>
             <Text layoutX="95.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which movie?" />
             <ComboBox fx:id="movieSPComboBox" layoutX="95.0" layoutY="122.0" prefHeight="25.0" prefWidth="175.0" promptText="INDSÆT FILM fra DB" />
-            <TextField fx:id="movieTimeSPTextField" layoutX="95.0" layoutY="260.0" prefHeight="25.0" prefWidth="175.0" />
+            <TextField fx:id="movieTimeSPTextField" layoutX="95.0" layoutY="260.0" prefHeight="25.0" prefWidth="175.0" promptText="10:00" />
             <Text layoutX="95.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which time?" />
             <MenuButton fx:id="theatersSPMenuButton" layoutX="95.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="175.0" text="Theaters">
               <items>

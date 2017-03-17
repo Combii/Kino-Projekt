@@ -12,7 +12,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 public class showPlannerController {
-    
+
     @FXML
     private DatePicker movieDateSPDatePicker;
 
@@ -36,6 +36,9 @@ public class showPlannerController {
 
     @FXML
     private MenuItem smallTheaterSPMenuItem;
+
+    @FXML
+    private Button newMovieSPButton;
 
 }
 

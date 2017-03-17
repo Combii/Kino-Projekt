@@ -42,8 +42,6 @@ public class SQLMovie {
 
     }
 
-    public void updateMovie()
-
     public Movie getMovie(String name) {
 
         try {

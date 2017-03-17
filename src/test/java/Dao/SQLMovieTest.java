@@ -1,5 +1,6 @@
 package Dao;
 
+import BusinessLogic.Movie;
 import org.junit.Test;
 
 /**
@@ -12,8 +13,7 @@ public class SQLMovieTest {
     public void testAddMovie() {
 
         SQLMovie movieAdder = new SQLMovie();
-
-        movieAdder.addMovie("adaee","+12",23.3,"action");
+        movieAdder.addMovie(new Movie("adaee","+12",23.3,"action"));
 
     }
 

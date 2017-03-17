@@ -1,4 +1,4 @@
-package Logic;
+package BusinessLogic;
 
 /**
  * Created by jakob on 14/03/2017.

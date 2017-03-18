@@ -16,15 +16,13 @@ public class MovieList {
 
     public void getMovieListInDatabase(){
         try {
+
             SQLMovie sqlMovie = new SQLMovie();
-
             movieList = sqlMovie.getAllMovies();
-
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

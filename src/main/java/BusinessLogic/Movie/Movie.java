@@ -10,7 +10,7 @@ public class Movie {
     private double price;
     private String genre;
 
-    public Movie(String movieName, String ageRestriction, double price, String genre) {
+    public Movie(String movieName, String genre, String ageRestriction, double price) {
         this.movieName = movieName;
         this.ageRestriction = ageRestriction;
         this.price = price;

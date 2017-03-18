@@ -1,4 +1,4 @@
-package aPresentation;
+package aPresentation.BrowseMovies;
 
 import BusinessLogic.Movie.Movie;
 import BusinessLogic.Movie.MovieList;

@@ -5,24 +5,24 @@ package BusinessLogic.Movie;
  */
 public class Movie {
 
-    private String name;
+    private String movieName;
     private String ageRestriction;
     private double price;
     private String genre;
 
-    public Movie(String name, String ageRestriction, double price, String genre) {
-        this.name = name;
+    public Movie(String movieName, String ageRestriction, double price, String genre) {
+        this.movieName = movieName;
         this.ageRestriction = ageRestriction;
         this.price = price;
         this.genre = genre;
     }
 
-    public String getName() {
-        return name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 
     public String getAgeRestriction() {

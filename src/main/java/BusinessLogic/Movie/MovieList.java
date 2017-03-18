@@ -11,8 +11,11 @@ import java.util.List;
  */
 public class MovieList {
 
-    List<Movie> movieList;
+    private List<Movie> movieList;
 
+    public List<Movie> getMovieList() {
+        return movieList;
+    }
 
     public void getMovieListInDatabase(){
         try {

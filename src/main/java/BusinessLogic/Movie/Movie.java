@@ -39,6 +39,9 @@ public class Movie {
         return genre;
     }
 
+    public String getPicturePath() {
+        return picturePath;
+    }
 
     @Override
     public String toString() {

@@ -20,14 +20,14 @@ public class Thumbnail {
 
         OutputStream os = new FileOutputStream(file);
         Thumbnails.of(originalImagePath)
-                .size(250, 250)
+                .size(200, 250)
                 .outputFormat("png")
                 .toOutputStream(os);
     }
 
     public static void main(String[] args) {
         try {
-            convertToThumbnail("/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/Shrek.jpg","/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/Shrek.jpg");
+            convertToThumbnail("/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/Shrek2.jpg","/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/Shrek.jpg");
         } catch (IOException e) {
             e.printStackTrace();
         }

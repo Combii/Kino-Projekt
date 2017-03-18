@@ -1,5 +1,6 @@
 package aPresentation;
 
+import BusinessLogic.Movie.Movie;
 import BusinessLogic.Movie.MovieList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,28 +29,25 @@ import java.util.ResourceBundle;
  * Created by David Stovlbaek
  * 26 November 2016.
  */
-public class BrowseMovieController {
+public class BrowseMovieController implements Initializable{
     public AnchorPane splitPane;
     public GridPane gridPane;
-    public ContextMenu contextMenu;
 
-/*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //setGridPane("pics");
+        MovieList movieList = new MovieList();
+        movieList.getMovieListInDatabase();
+        setGridPane(movieList.getMovieList());
     }
-    
-    private void setGridPane() {
+
+    private void setGridPane(List<Movie> movieList) {
         gridPane.getChildren().clear();
 
         try {
-            MovieList movieList = new MovieList();
-            movieList.getMovieListInDatabase();
-
             int rowCounter = 0, columnCounter = 0;
 
 
-            for (final FilePath i : list.getList()) {
+            for (final Movie movie : movieList) {
 
                 Button button = new Button();
 
@@ -58,7 +56,7 @@ public class BrowseMovieController {
 
                 });
 
-                File file = new File(i.getLocalPathThumbnail());
+                File file = new File(movie.getPicturePath());
                 String localUrl = file.toURI().toURL().toString();
 
                 Image thumbnail = new Image(localUrl, false);
@@ -77,5 +75,6 @@ public class BrowseMovieController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
+
 }

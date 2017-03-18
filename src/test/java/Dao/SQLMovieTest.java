@@ -16,7 +16,6 @@ public class SQLMovieTest {
 
         SQLMovie movieAdder = new SQLMovie();
         movieAdder.addMovie(new Movie("adaee","action", "12+", 50));
-
     }
 
 

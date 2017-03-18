@@ -18,7 +18,7 @@ public class MovieList {
         try {
             SQLMovie sqlMovie = new SQLMovie();
 
-            //sqlMovie
+            movieList = sqlMovie.getAllMovies();
 
 
         } catch (SQLException e) {
@@ -27,5 +27,8 @@ public class MovieList {
 
     }
 
-
+    @Override
+    public String toString() {
+        return movieList.toString();
+    }
 }

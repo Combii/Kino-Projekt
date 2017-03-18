@@ -5,9 +5,9 @@ import java.sql.*;
 public class SQLDatabase implements SQLDatabaseInterface {
 
     private static String url = "jdbc:mysql://sql7.freemysqlhosting.net:3306/";
-    private static String dbName = "sql7163805";
-    private static String userName = "sql7163805";
-    private static String password = "wiX3QSmZ1A";
+    private static String dbName = "sql7164386";
+    private static String userName = "sql7164386";
+    private static String password = "VCFsaAXiwY";
 
     private static SQLDatabase database = null;
     private static Connection connection = null;

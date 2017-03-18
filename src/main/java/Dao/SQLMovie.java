@@ -1,6 +1,6 @@
 package Dao;
 
-import BusinessLogic.Movie;
+import BusinessLogic.Movie.Movie;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,4 +1,4 @@
-package BusinessLogic;
+package BusinessLogic.Movie;
 
 /**
  * Created by BorisGrunwald on 14/03/2017.

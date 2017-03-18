@@ -2,6 +2,7 @@ package aPresentation.BrowseMovies;
 
 import BusinessLogic.Movie.Movie;
 import BusinessLogic.Movie.MovieList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,10 +33,13 @@ import java.util.ResourceBundle;
 public class BrowseMovieController implements Initializable{
     public AnchorPane splitPane;
     public GridPane gridPane;
+    public TextField searchMovie;
+
+    MovieList movieList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MovieList movieList = new MovieList();
+        movieList = new MovieList();
         movieList.getMovieListInDatabase();
         setGridPane(movieList.getMovieList());
     }
@@ -77,4 +81,9 @@ public class BrowseMovieController implements Initializable{
         }
     }
 
+    public void searchMovieCheck() {
+        String movieName = searchMovie.getText().toLowerCase();
+
+        setGridPane(movieList.getListAfterContainsMovieString(movieName));
+    }
 }

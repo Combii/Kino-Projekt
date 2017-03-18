@@ -3,6 +3,7 @@ package BusinessLogic.Movie;
 import Dao.SQLMovie;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +27,20 @@ public class MovieList {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Movie> getListAfterContainsMovieString(String movieName){
+        if(movieName.trim().isEmpty())
+            return movieList;
+
+        List<Movie> rMovieList = new ArrayList<>();
+
+        for(Movie movie : movieList){
+            if(movie.getMovieName().toLowerCase().contains(movieName.toLowerCase())){
+                rMovieList.add(movie);
+            }
+        }
+        return rMovieList;
     }
 
     @Override

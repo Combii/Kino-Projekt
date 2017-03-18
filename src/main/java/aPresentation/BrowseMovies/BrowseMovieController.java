@@ -84,6 +84,6 @@ public class BrowseMovieController implements Initializable{
     public void searchMovieCheck() {
         String movieName = searchMovie.getText().toLowerCase();
 
-        setGridPane(movieList.getListAfterContainsMovieString(movieName));
+        setGridPane(movieList.getListAfterMovieName(movieName));
     }
 }

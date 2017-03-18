@@ -29,15 +29,19 @@ public class MovieList {
         }
     }
 
-    public List<Movie> getListAfterContainsMovieString(String movieName){
+    public List<Movie> getListAfterMovieName(String movieName){
         if(movieName.trim().isEmpty())
             return movieList;
 
         List<Movie> rMovieList = new ArrayList<>();
 
         for(Movie movie : movieList){
-            if(movie.getMovieName().toLowerCase().contains(movieName.toLowerCase())){
-                rMovieList.add(movie);
+            try {
+                if (movieName.toLowerCase().equals(movie.getMovieName().toLowerCase().substring(0, movieName.length()))) {
+                    rMovieList.add(movie);
+                }
+            }
+            catch (Exception ignored){
             }
         }
         return rMovieList;

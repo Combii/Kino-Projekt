@@ -74,7 +74,7 @@ public class SQLMovie {
     }
 
     private Movie getMovie(ResultSet movie) throws SQLException {
-        return new Movie(movie.getString(1),movie.getString(2),movie.getString(3),movie.getDouble(4));
+        return new Movie(movie.getString(1),movie.getString(2),movie.getString(3),movie.getDouble(4), movie.getString(5));
     }
 
 }

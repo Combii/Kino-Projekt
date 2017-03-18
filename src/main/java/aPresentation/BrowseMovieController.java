@@ -1,5 +1,6 @@
 package aPresentation;
 
+import BusinessLogic.Movie.MovieList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,19 +33,18 @@ public class BrowseMovieController {
     public GridPane gridPane;
     public ContextMenu contextMenu;
 
-    /*
+/*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //setGridPane("pics");
     }
-
-    private void setGridPane(String dropboxFolderPath) {
-        currentFolderOpen = dropboxFolderPath;
+    
+    private void setGridPane() {
         gridPane.getChildren().clear();
 
         try {
-            FileStorage list = new FileStorage();
-            list.downloadFilesToList(dropboxFolderPath);
+            MovieList movieList = new MovieList();
+            movieList.getMovieListInDatabase();
 
             int rowCounter = 0, columnCounter = 0;
 
@@ -53,15 +53,9 @@ public class BrowseMovieController {
 
                 Button button = new Button();
 
-                //Handle when button is clicked on
+                //Handle when picture of Movie is clicked on
                 button.setOnAction(event -> {
-                    try {
-                        //https://stackoverflow.com/questions/5824916/how-do-i-open-an-image-in-the-default-image-viewer-using-java-on-windows
-                        File file = new File(i.getLocalPath());
-                        Desktop.getDesktop().open(file);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
                 });
 
                 File file = new File(i.getLocalPathThumbnail());

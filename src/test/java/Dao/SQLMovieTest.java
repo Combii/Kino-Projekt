@@ -15,7 +15,7 @@ public class SQLMovieTest {
     public void testAddMovie() throws SQLException {
 
         SQLMovie movieAdder = new SQLMovie();
-        movieAdder.addMovie(new Movie("adaee","action", "12+", 50));
+        movieAdder.addMovie(new Movie("adaee","action", "12+", 50, ""));
     }
 
 

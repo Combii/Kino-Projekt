@@ -1,5 +1,7 @@
 package BusinessLogic.Movie;
 
+import java.io.File;
+
 /**
  * Created by BorisGrunwald on 14/03/2017.
  */
@@ -10,11 +12,15 @@ public class Movie {
     private double price;
     private String genre;
 
-    public Movie(String movieName, String genre, String ageRestriction, double price) {
+    private String picturePath = new File("src/main/Resources/MoviePictures").getAbsolutePath();
+
+
+    public Movie(String movieName, String genre, String ageRestriction, double price, String picturePath) {
         this.movieName = movieName;
         this.ageRestriction = ageRestriction;
         this.price = price;
         this.genre = genre;
+        this.picturePath += "/" + picturePath;
     }
 
     public String getMovieName() {
@@ -39,6 +45,7 @@ public class Movie {
         return  "{Movie Name: " + movieName +
                 ", AgeRestriction: " + ageRestriction +
                 ", Price: " + price +
-                ", Genre: " + genre + "}";
+                ", Genre: " + genre +
+                ", PicturePath: " + picturePath + "}";
     }
 }

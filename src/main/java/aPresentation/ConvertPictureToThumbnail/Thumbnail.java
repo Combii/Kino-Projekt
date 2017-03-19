@@ -13,8 +13,11 @@ import java.io.OutputStream;
  */
 public class Thumbnail {
 
-    private static void convertToThumbnail(String localPathToSave, String originalImagePath) throws IOException {
+    public static void convertToThumbnail(String localPathToSave, String originalImagePath) throws IOException {
         //https://github.com/coobird/thumbnailator/wiki/Examples
+
+        localPathToSave = new File("src/main/Resources/MoviePictures").getAbsolutePath() + "/" + localPathToSave;
+
         File file = new File(localPathToSave);
         file.getParentFile().mkdirs();
 
@@ -25,6 +28,7 @@ public class Thumbnail {
                 .toOutputStream(os);
     }
 
+    /*
     public static void main(String[] args) {
         try {
             convertToThumbnail("/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/Shrek2.jpg","/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/Shrek.jpg");
@@ -32,4 +36,5 @@ public class Thumbnail {
             e.printStackTrace();
         }
     }
+    */
 }

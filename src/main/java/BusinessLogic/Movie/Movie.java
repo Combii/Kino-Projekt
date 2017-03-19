@@ -43,6 +43,11 @@ public class Movie {
         return picturePath;
     }
 
+    //Used for when uploading to DB
+    protected void removeAbsolutePath(){
+        picturePath = picturePath.substring(picturePath.lastIndexOf('/')+1, picturePath.length());
+    }
+
     @Override
     public String toString() {
         return  "{Movie Name: " + movieName +

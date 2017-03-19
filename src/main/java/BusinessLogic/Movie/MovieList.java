@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class MovieList {
 
-    private List<Movie> movieList;
+    private List<Movie> movieList = new ArrayList<>();
 
     public List<Movie> getMovieList() {
         return movieList;
@@ -45,6 +45,23 @@ public class MovieList {
             }
         }
         return rMovieList;
+    }
+
+    public void addMovieToList(String movieName, String genre, String ageRestriction, double price, String picturePath){
+        movieList.add(new Movie(movieName, genre, ageRestriction, price, picturePath));
+    }
+
+    public void uploadMovieListToDatebase(){
+        try {
+            SQLMovie sqlMovie = new SQLMovie();
+
+            for (Movie movie : movieList) {
+                movie.removeAbsolutePath();
+                sqlMovie.addMovie(movie);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -116,6 +116,7 @@ public class EditMovieController{
             newMovieList.addMovieToList(movieName.getText(), genre.getText(), ageRestriction.getText(), Double.parseDouble(price.getText()), imageName);
             newMovieList.uploadMovieListToDatebase();
 
+            movieList.getMovieListInDatabase();
             setUpTableColumn("");
         }
         else

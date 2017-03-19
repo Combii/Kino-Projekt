@@ -32,9 +32,8 @@ public class EditMovieController{
     @SuppressWarnings("unchecked")
     public void initialize() {
         movieList.getMovieListInDatabase();
-        System.out.println(movieList);
-        table.setEditable(false);
 
+        table.setEditable(false);
         setUpTableColumn("");
     }
 

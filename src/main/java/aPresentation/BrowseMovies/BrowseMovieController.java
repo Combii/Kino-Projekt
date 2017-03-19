@@ -63,6 +63,7 @@ public class BrowseMovieController implements Initializable{
                 button.setOnAction(event -> {
 
                 });
+                //------------------------------------------
 
                 File file = new File(movie.getPicturePath());
                 String localUrl = file.toURI().toURL().toString();

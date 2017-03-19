@@ -18,6 +18,10 @@ public class MovieList {
         return movieList;
     }
 
+    public void setMovieList(List<Movie> movieList) {
+        this.movieList = movieList;
+    }
+
     public void getMovieListInDatabase(){
         try {
 

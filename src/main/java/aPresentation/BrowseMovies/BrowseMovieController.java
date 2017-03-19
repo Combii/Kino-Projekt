@@ -86,4 +86,8 @@ public class BrowseMovieController implements Initializable{
 
         setGridPane(movieList.getListAfterMovieName(movieName));
     }
+
+    public void addMovieButton() {
+
+    }
 }

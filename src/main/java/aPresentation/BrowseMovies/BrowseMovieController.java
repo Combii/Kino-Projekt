@@ -69,8 +69,8 @@ public class BrowseMovieController implements Initializable{
 
                 Image thumbnail = new Image(localUrl, false);
                 ImageView view = new ImageView(thumbnail);
-                view.setFitHeight(100);
-                view.setFitWidth(150);
+                view.setFitHeight(150);
+                view.setFitWidth(120);
                 button.setGraphic(view);
                 gridPane.add(button, columnCounter, rowCounter);
 

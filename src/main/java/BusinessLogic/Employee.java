@@ -51,4 +51,12 @@ public class Employee {
         return role;
     }
 
+    @Override
+    public String toString() {
+        return  "{ Name: " + name +
+                ", ID: " + ID +
+                ", Salary: " + salary +
+                ", Role: " + role + "}";
+    }
+
 }

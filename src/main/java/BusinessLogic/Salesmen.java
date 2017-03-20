@@ -6,6 +6,7 @@ package BusinessLogic;
  */
 public class Salesmen implements EmployeeInterface {
 
+
 private char role = 's';
 
 }

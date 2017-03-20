@@ -1,8 +1,4 @@
-package Logic;
-
-import Logic.Movie;
-import Logic.Seat;
-import Logic.Theater;
+package BusinessLogic;
 
 import java.util.Date;
 

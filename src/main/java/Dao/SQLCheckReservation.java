@@ -13,6 +13,13 @@ import java.util.List;
 public class SQLCheckReservation {
 
 
+
+
+
+
+
+
+    //Deprecated
     public static List<Seat> getAllSeats(int theaterNumber, String date) throws SQLException {
 
         SQLDatabase database = SQLDatabase.getDatabase();
@@ -40,7 +47,7 @@ public class SQLCheckReservation {
         return rList;
     }
 
-
+    //Deprecated
     public static boolean checkSeatIsValid(Seat seat){
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
@@ -64,5 +71,6 @@ public class SQLCheckReservation {
         }
         return false;
     }
+
 
 }

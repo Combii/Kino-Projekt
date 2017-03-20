@@ -1,5 +1,7 @@
 package BusinessLogic;
 
+import BusinessLogic.Movie.Movie;
+
 import java.util.Date;
 
 /**

@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD:src/main/java/Logic/Ticket.java
-package Logic;
-=======
+
+
+
 package BusinessLogic;
->>>>>>> master:src/main/java/BusinessLogic/Ticket.java
-=======
-package BusinessLogic;
->>>>>>> master
+
+
 
 import java.util.Date;
 

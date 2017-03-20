@@ -22,7 +22,6 @@ public class BigTheater extends Theater implements Reservation {
             return true;
         } else return false;
     }
-
     public void removeReservation(Seat seat) {
         reservationList.remove(seat);
     }

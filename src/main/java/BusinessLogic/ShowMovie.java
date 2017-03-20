@@ -24,4 +24,14 @@ class ShowMovie {
         this.theaterNumber = theaterNumber;
         this.seats = seats;
     }
+
+    @Override
+    public String toString() {
+        return "ShowMovie{" +
+                "m=" + m +
+                ", date='" + date + '\'' +
+                ", seats=" + seats +
+                ", theaterNumber=" + theaterNumber +
+                '}';
+    }
 }

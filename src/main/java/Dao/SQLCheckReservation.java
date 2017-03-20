@@ -13,12 +13,6 @@ import java.util.List;
 public class SQLCheckReservation {
 
 
-
-
-
-
-
-
     //Deprecated
     public static List<Seat> getAllSeats(int theaterNumber, String date) throws SQLException {
 
@@ -42,12 +36,13 @@ public class SQLCheckReservation {
             else
                 isReservedBoolean = false;
 
-            rList.add(new Seat(seatRow, seatNumber, isReservedBoolean, theaterNumber));
+            rList.add(new Seat(seatRow, seatNumber, isReservedBoolean));
         }
         return rList;
     }
 
     //Deprecated
+    /*
     public static boolean checkSeatIsValid(Seat seat){
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
@@ -55,7 +50,6 @@ public class SQLCheckReservation {
 
             int seatNumber = seat.getNumber();
             int seatRow = seat.getRow();
-            int theater = seat.getTheater();
 
 
             PreparedStatement ps = conn.prepareStatement("SELECT isReserved FROM Seat WHERE seatRow = '"+seatRow+"' AND seatNumber ='"+ seatNumber +"' AND TheaterID ='"+ theater +"';");
@@ -71,6 +65,6 @@ public class SQLCheckReservation {
         }
         return false;
     }
-
+*/
 
 }

@@ -15,6 +15,15 @@ public class Seat {
         this.isReserved = isReserved;
     }
 
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "number=" + number +
+                ", row=" + row +
+                ", isReserved=" + isReserved +
+                '}';
+    }
+
     public int getNumber() {
         return number;
     }

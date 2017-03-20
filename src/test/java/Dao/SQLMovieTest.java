@@ -18,6 +18,11 @@ public class SQLMovieTest {
         movieAdder.addMovie(new Movie("adaee","action", "12+", 50, ""));
     }
 
+    public void testEditMovie() throws SQLException {
+
+
+
+    }
 
 
 }

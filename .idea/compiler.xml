@@ -28,7 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Kino Aflevering" target="1.8" />
-      <module name="Kino-Projekt" target="1.5" />
+      <module name="Kino-Projekt" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,6 +2,7 @@ package aPresentation.BrowseMovies;
 
 import BusinessLogic.Movie.Movie;
 import BusinessLogic.Movie.MovieList;
+import aPresentation.EditMovie.ReservationController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -61,7 +62,8 @@ public class BrowseMovieController implements Initializable{
 
                 //Handle when picture of Movie is clicked on
                 button.setOnAction(event -> {
-
+                    changeMovie(movie);
+                    changeWindow("/Reservation/Reservation.fxml");
                 });
                 //------------------------------------------
 
@@ -92,12 +94,24 @@ public class BrowseMovieController implements Initializable{
         setGridPane(movieList.getListAfterMovieName(movieName));
     }
 
-    public void addMovieButton() throws IOException {
+    public void addMovieButton() {
+        changeWindow("/EditMovies.fxml");
+    }
+
+    private void changeWindow(String changeWindow) {
+        try {
         Stage stage = (Stage) gridPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/editMovies.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(changeWindow));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void changeMovie(Movie movie) {
+        ReservationController.movie = movie;
     }
 }

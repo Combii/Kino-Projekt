@@ -52,7 +52,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="backToMenuBButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back to menu">
+            <Button fx:id="backToBrowseMoviesButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBrowseMovies" text="Back to menu">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -62,13 +62,16 @@
                   <Image url="@../bigTheater.png" />
                </image>
             </ImageView>
-            <Text fx:id="movieNameText" layoutX="95.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MovieNameText" />
-            <TableView layoutX="89.0" layoutY="232.0" prefHeight="183.0" prefWidth="141.0">
+            <Text fx:id="movieNameText" layoutX="95.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MovieNameText">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <TableView layoutX="95.0" layoutY="232.0" prefHeight="252.0" prefWidth="176.0">
               <columns>
-                <TableColumn fx:id="listDate" prefWidth="140.0" text="Date(s)" />
+                <TableColumn fx:id="listDate" prefWidth="175.0" text="Date(s)" />
               </columns>
             </TableView>
-            <ComboBox fx:id="ticketsComboBox" layoutX="91.0" layoutY="167.0" prefWidth="150.0" promptText="Tickets" />
+            <ComboBox fx:id="ticketsComboBox" layoutX="95.0" layoutY="167.0" prefWidth="150.0" promptText="Tickets" />
          </children>
       </AnchorPane>
    </content>

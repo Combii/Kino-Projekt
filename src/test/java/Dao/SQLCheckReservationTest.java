@@ -14,7 +14,7 @@ public class SQLCheckReservationTest {
     public void getAllSeats() throws Exception {
         System.out.println(SQLCheckReservation.getAllSeats(1, "2017-03-16 18:22:12"));
     }
-
+/*
     @Test
     public void checkSeatIsValid() throws Exception {
         Seat seat = new Seat(1, 1, false , 1);
@@ -25,5 +25,5 @@ public class SQLCheckReservationTest {
         System.out.println(SQLCheckReservation.checkSeatIsValid(seat2));
         assertEquals(SQLCheckReservation.checkSeatIsValid(seat2), false);
     }
-
+*/
 }

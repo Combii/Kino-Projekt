@@ -1,5 +1,7 @@
 
 package BusinessLogic;
+import BusinessLogic.Movie.Movie;
+
 import java.util.ArrayList;
 import java.util.List;
 

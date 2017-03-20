@@ -1,8 +1,10 @@
-package Presentation;
+package aPresentation;
 
 /**
  * Created by Olivi on 17-03-2017.
  */
+
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,40 +17,39 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class reservationBController implements Initializable {
+public class reservationSController implements Initializable {
 
     @FXML
-    private Slider ticketBSlider;
+    private Slider ticketSSlider;
 
     @FXML
-    private DatePicker movieDateBDatePicker;
+    private DatePicker movieDateSDatePicker;
 
     @FXML
-    private TextField showChoosenMovieBTextField;
+    private TextField showChoosenMovieSTextField;
 
     @FXML
-    private TextField nameBTextField;
+    private TextField nameSTextField;
 
     @FXML
-    private TextField phoneNumberBTextField;
+    private TextField phoneNumberSTextField;
 
     @FXML
-    private ComboBox<?> chooseSeatsBComboBox;
+    private ComboBox<?> chooseSeatsSComboBox;
 
     @FXML
-    private RadioButton reserveBRadioButton;
+    private RadioButton reserveSRadioButton;
 
     @FXML
-    private RadioButton reservePayBRadioButton;
+    private RadioButton reservePaySRadioButton;
 
     @FXML
-    private Button finalizeBButton;
+    private Button finalizeSButton;
 
     @FXML
-    private Button backToMenuBButton;
+    private Button backToMenuSButton;
 
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 }

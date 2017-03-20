@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/BrowseMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/welcome.fxml"));
         primaryStage.setTitle("Kino XP");
         primaryStage.setResizable(true);
         primaryStage.setScene(new Scene(root));
@@ -24,4 +24,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
+

@@ -3,11 +3,9 @@
 
 package BusinessLogic;
 
-<<<<<<< HEAD
 
-=======
 import BusinessLogic.Movie.Movie;
->>>>>>> master
+
 
 import java.util.Date;
 

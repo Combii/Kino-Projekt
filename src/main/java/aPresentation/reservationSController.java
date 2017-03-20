@@ -5,6 +5,7 @@ package aPresentation;
  */
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -51,5 +52,9 @@ public class reservationSController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void makeReservation(ActionEvent actionEvent) {
+        
     }
 }

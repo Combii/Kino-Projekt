@@ -44,8 +44,12 @@
 >>>>>>> master
 =======
       <module name="Kino Aflevering" target="1.8" />
+<<<<<<< HEAD
 >>>>>>> master
       <module name="Kino-Projekt" target="1.5" />
+=======
+      <module name="Kino-Projekt" target="1.8" />
+>>>>>>> master
     </bytecodeTargetLevel>
   </component>
 </project>

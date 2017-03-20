@@ -7,5 +7,4 @@ public class MovieOperator extends Employee {
 
     private char role = 'm';
 
-
 }

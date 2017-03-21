@@ -29,6 +29,8 @@ public class ReservationController implements Initializable {
     public static Movie movie;
     public MenuButton tickets;
 
+    private static int numberOfTickets;
+
     private ObservableList<MenuItem> list = FXCollections.observableArrayList();
 
 
@@ -43,7 +45,6 @@ public class ReservationController implements Initializable {
 
 
     public void makeReservation(ActionEvent actionEvent) {
-
     }
 
     private void changeWindow(String changeWindow) {
@@ -70,14 +71,9 @@ public class ReservationController implements Initializable {
     private void setupTicketMenu(int numberOfTickets){
         for(int i = 1; i <= numberOfTickets; i++){
             MenuItem menuItem = new MenuItem(String.valueOf(i));
-            menuItem.setOnAction(event -> {
-                System.out.println(menuItem.getText());
-            });
+            menuItem.setOnAction(event -> ReservationController.numberOfTickets = Integer.parseInt(menuItem.getText()));
             list.add(menuItem);
         }
-
-
-
 
     }
 }

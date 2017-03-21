@@ -11,7 +11,9 @@ import static org.junit.Assert.*;
 public class SQLreservationTest {
     @Test
     public void getMovieSchedules() throws Exception {
+        SQLreservation sqLreservation = new SQLreservation();
 
+        sqLreservation.getMovieSchedules()
     }
 
 }

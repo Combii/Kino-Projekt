@@ -16,4 +16,13 @@ public class Schedule {
         this.theaterType = theaterType;
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "movie='" + movie + '\'' +
+                ", theaterType=" + theaterType +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }

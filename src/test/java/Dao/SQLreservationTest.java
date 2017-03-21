@@ -1,6 +1,9 @@
 package Dao;
 
+import BusinessLogic.Schedule.Schedule;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +16,9 @@ public class SQLreservationTest {
     public void getMovieSchedules() throws Exception {
         SQLreservation sqLreservation = new SQLreservation();
 
-        sqLreservation.getMovieSchedules()
+        List<Schedule> scheduleList = sqLreservation.getMovieSchedulesForMovie("Shrek");
+
+        System.out.println(scheduleList);
     }
 
 }

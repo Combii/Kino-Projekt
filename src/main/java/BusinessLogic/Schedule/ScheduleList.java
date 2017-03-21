@@ -1,6 +1,9 @@
 package BusinessLogic.Schedule;
 
 
+import Dao.SQLreservation;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,5 +20,9 @@ public class ScheduleList {
     }
 
 
+    public void getSchedulesForMovie(String movieName) throws SQLException {
+        SQLreservation sqLreservation = new SQLreservation();
 
+        scheduleList = sqLreservation.getMovieSchedulesForMovie(movieName);
+    }
 }

@@ -20,13 +20,13 @@ public class SQLreservation {
     public SQLreservation() throws SQLException {
     }
 
-    public List<Schedule> getMovieSchedules(String movieName, Timestamp dateAndTime, int theaterType) throws SQLException {
-        ResultSet rs = getMovieScheduleId(movieName, dateAndTime, theaterType);
+    public List<Schedule> getMovieSchedulesForMovie(String movieName) throws SQLException {
+        ResultSet rs = getMovieSchedules(movieName);
 
         List<Schedule> list = new ArrayList<>();
 
         while(rs.next()){
-            list.add(new Schedule(rs.getString(3), rs.getInt(2), rs.getString(4)));
+            list.add(new Schedule(rs.getString(2), rs.getInt(1), rs.getString(3)));
         }
         return list;
     }
@@ -57,6 +57,16 @@ public class SQLreservation {
         }
 
         return seats;
+    }
+
+    private ResultSet getMovieSchedules(String movieName){
+        try {
+            ps = conn.prepareStatement("SELECT theaterType, movieName, movieDate FROM MovieSchedule WHERE movieName ='"+ movieName +"';");
+            return ps.executeQuery();
+
+        } catch (SQLException e) {
+            return null;
+        }
     }
 
     private ResultSet getMovieScheduleId(String movieName, Timestamp dateAndTime, int theaterType) {

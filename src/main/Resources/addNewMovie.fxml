@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane prefHeight="407.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation/addNewMovieController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="583.0">
+         <children>
+            <Text layoutX="226.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new movie">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="95.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poster" />
+            <Button fx:id="addMovieAMButton" layoutX="491.0" layoutY="691.0" mnemonicParsing="false" text="Add movie">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="backToMenuAMButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back to menu">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Text layoutX="95.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <Text layoutX="95.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+            <ImageView fx:id="moviePosterAMImageView" fitHeight="150.0" fitWidth="200.0" layoutX="95.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@smiley.jpg" />
+               </image>
+            </ImageView>
+            <TextField layoutX="95.0" layoutY="121.0" promptText="Shrek" />
+            <ScrollPane layoutX="95.0" layoutY="360.0" prefHeight="116.0" prefWidth="202.0" AnchorPane.rightAnchor="286.0">
+               <content>
+                  <TextArea fx:id="movieDescriptionAMTextArea" prefHeight="113.0" prefWidth="200.0" promptText="Write description...." wrapText="true" />
+               </content>
+            </ScrollPane>
+            <Text layoutX="95.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Running time" />
+            <Text layoutX="214.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" />
+            <DatePicker fx:id="movieStartDateAMDatePicker" layoutX="95.0" layoutY="601.0" prefHeight="25.0" prefWidth="102.0" promptText="Start date" />
+            <DatePicker fx:id="movieEndDateAMDatePicker" layoutX="241.0" layoutY="601.0" prefHeight="25.0" prefWidth="102.0" promptText="End date" />
+            <Text layoutX="95.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" />
+            <ComboBox layoutX="95.0" layoutY="675.0" prefWidth="150.0" promptText="INDSÆT GENRE FRA DB" />
+            <Text layoutX="95.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age restriction" />
+            <MenuButton fx:id="ageRestrictionAMMenuButton" layoutX="95.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Age">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="0+" />
+                <MenuItem mnemonicParsing="false" text="7+" />
+                <MenuItem mnemonicParsing="false" text="16+" />
+                  <MenuItem mnemonicParsing="false" text="18+" />
+              </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

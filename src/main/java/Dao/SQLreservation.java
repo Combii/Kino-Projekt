@@ -44,7 +44,7 @@ public class SQLreservation {
             int seatNumber = seat.getInt("seatNumber");
             boolean isReserved = seat.getBoolean("isReserved");
 
-            seats.add(new Seat(seatRow,seatNumber,isReserved,theaterType));
+            //seats.add(new Seat(seatRow,seatNumber,isReserved,theaterType));
         }
 
         return seats;

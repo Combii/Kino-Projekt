@@ -18,20 +18,16 @@ public class SQLreservation {
     public SQLreservation() throws SQLException {
     }
 
-    public List<Seat> getSeatsForMovie(String movieName, Timestamp dateAndTime) throws SQLException {
+    public List<Seat> getSeatsForMovie(String movieName, Timestamp dateAndTime, int theaterType) throws SQLException {
 
-        ResultSet movieScheduleIdAndTheaterType = getMovieScheduleId(movieName,dateAndTime);
-
+        ResultSet movieScheduleIdAndTheaterType = getMovieScheduleId(movieName,dateAndTime, theaterType);
+        movieScheduleIdAndTheaterType.next();
         int movieScheduleId = movieScheduleIdAndTheaterType.getInt("movieScheduleID");
-        int theaterType = movieScheduleIdAndTheaterType.getInt("theaterType");
-
-        return getSeatList(movieScheduleId, theaterType);
-
-
+        return getSeatList(movieScheduleId);
 
     }
 
-    private List<Seat> getSeatList(int movieScheduleId, int theaterType) throws SQLException {
+    private List<Seat> getSeatList(int movieScheduleId) throws SQLException {
 
         ps = conn.prepareStatement("SELECT seatRow,seatNumber,isReserved FROM Seat WHERE movieScheduleID = '"+movieScheduleId+"';");
         ResultSet seat = ps.executeQuery();
@@ -43,17 +39,17 @@ public class SQLreservation {
             int seatRow = seat.getInt("seatRow");
             int seatNumber = seat.getInt("seatNumber");
             boolean isReserved = seat.getBoolean("isReserved");
+            seats.add(new Seat(seatRow,seatNumber,isReserved));
 
-            seats.add(new Seat(seatRow,seatNumber,isReserved,theaterType));
         }
 
         return seats;
     }
 
-    private ResultSet getMovieScheduleId(String movieName, Timestamp dateAndTime) {
+    private ResultSet getMovieScheduleId(String movieName, Timestamp dateAndTime, int theaterType) {
 
         try {
-            ps = conn.prepareStatement("SELECT movieScheduleID, theaterType FROM MovieSchedule WHERE movieName = '"+movieName+"' AND movieDate = '"+dateAndTime+"';");
+            ps = conn.prepareStatement("SELECT movieScheduleID FROM MovieSchedule WHERE movieName = '"+movieName+"' AND movieDate = '"+dateAndTime+"' AND theaterType = '" + theaterType +"';");
             return ps.executeQuery();
 
         } catch (SQLException e) {

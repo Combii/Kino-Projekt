@@ -1,8 +1,10 @@
 package Dao;
 
+import BusinessLogic.Schedule.Schedule;
 import BusinessLogic.Seat;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +18,17 @@ public class SQLreservation {
     PreparedStatement ps;
 
     public SQLreservation() throws SQLException {
+    }
+
+    public List<Schedule> getMovieSchedules(String movieName, Timestamp dateAndTime, int theaterType) throws SQLException {
+        ResultSet rs = getMovieScheduleId(movieName, dateAndTime, theaterType);
+
+        List<Schedule> list = new ArrayList<>();
+
+        while(rs.next()){
+            list.add(new Schedule(rs.getString(3), rs.getInt(2), rs.getString(4)));
+        }
+        return list;
     }
 
     public List<Seat> getSeatsForMovie(String movieName, Timestamp dateAndTime, int theaterType) throws SQLException {

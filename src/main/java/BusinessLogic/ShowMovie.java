@@ -2,6 +2,7 @@ package BusinessLogic;
 
 import BusinessLogic.Movie.Movie;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
 class ShowMovie {
 
     Movie m;
-    String date;
+    Timestamp date;
     List<Seat> seats;
     int theaterNumber;
 
@@ -18,7 +19,7 @@ class ShowMovie {
 
     }
 
-    public ShowMovie(Movie m, String date, int theaterNumber, List<Seat> seats) {
+    public ShowMovie(Movie m, Timestamp date, int theaterNumber, List<Seat> seats) {
         this.m = m;
         this.date = date;
         this.theaterNumber = theaterNumber;

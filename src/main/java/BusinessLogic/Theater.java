@@ -1,7 +1,10 @@
 
 package BusinessLogic;
 import BusinessLogic.Movie.Movie;
+import Dao.SQLreservation;
 
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,8 @@ public abstract class Theater {
     private int rows;
     private int seats;
 
+    private List<ShowMovie> schedule;
+
     public Theater() {
     }
 
@@ -22,8 +27,8 @@ public abstract class Theater {
         this.seats = seats;
         this.theaterNumber = theaterNumber;
     }
-
-    public List<ShowMovie> addMovie(Movie m, String date) {
+    //Tilføjer et objekt til databasen / Tilføjer en movie til databasen med en liste af sæder
+    public List<ShowMovie> addMovie(Movie m, Timestamp date) {
         List<ShowMovie> list = new ArrayList<ShowMovie>();
         List<Seat> seatList = new ArrayList<>();
         for(int i = 1; i < rows+1; i++){
@@ -36,5 +41,12 @@ public abstract class Theater {
 
         return list;
     }
+
+    public List<Seat> getSeatsList(String name, Timestamp date) throws SQLException {
+        SQLreservation sql = new SQLreservation();
+        return sql.getSeatsForMovie(name, date, this.theaterNumber);
+    }
+
+
 
 }

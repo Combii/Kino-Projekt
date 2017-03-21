@@ -3,7 +3,6 @@ package BusinessLogic.Schedule;
 
 import Dao.SQLreservation;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +13,23 @@ import java.util.List;
 public class ScheduleList {
     List<Schedule> scheduleList = new ArrayList<>();
 
+    public List<Schedule> getScheduleList() {
+        return scheduleList;
+    }
 
     public void addScheduleList(String movie, String date, int theaterType){
         scheduleList.add(new Schedule(movie, theaterType, date));
     }
 
 
-    public void getSchedulesForMovie(String movieName) throws SQLException {
-        SQLreservation sqLreservation = new SQLreservation();
-
-        scheduleList = sqLreservation.getMovieSchedulesForMovie(movieName);
+    public void getSchedulesForMovie(String movieName) {
+        try {
+            SQLreservation sqLreservation = null;
+            sqLreservation = new SQLreservation();
+            scheduleList = sqLreservation.getMovieSchedulesForMovie(movieName);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

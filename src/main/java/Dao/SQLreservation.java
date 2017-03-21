@@ -20,13 +20,17 @@ public class SQLreservation {
     public SQLreservation() throws SQLException {
     }
 
-    public List<Schedule> getMovieSchedulesForMovie(String movieName) throws SQLException {
+    public List<Schedule> getMovieSchedulesForMovie(String movieName) {
         ResultSet rs = getMovieSchedules(movieName);
 
         List<Schedule> list = new ArrayList<>();
-
-        while(rs.next()){
-            list.add(new Schedule(rs.getString(2), rs.getInt(1), rs.getString(3)));
+        try {
+            while (rs.next()) {
+                list.add(new Schedule(rs.getString(2), rs.getInt(1), rs.getString(3)));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         return list;
     }

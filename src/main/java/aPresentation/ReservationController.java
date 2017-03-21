@@ -1,16 +1,17 @@
-package aPresentation.EditMovie;
+package aPresentation;
 
 import BusinessLogic.Movie.Movie;
+import BusinessLogic.Schedule.Schedule;
+import BusinessLogic.Schedule.ScheduleList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -34,6 +35,9 @@ public class ReservationController implements Initializable {
     public TableView dateList;
 
     private ObservableList<MenuItem> list = FXCollections.observableArrayList();
+    private ScheduleList scheduleList = new ScheduleList();
+
+    private TableColumn columnMovieDates;
 
 
     @Override
@@ -41,8 +45,9 @@ public class ReservationController implements Initializable {
         movieNameText.setText(movie.getMovieName());
 
         setupTicketMenu(10);
-
         tickets.getItems().addAll(FXCollections.observableArrayList(list));
+
+        setUpTableColumn(movieNameText.getText());
     }
 
 
@@ -77,6 +82,23 @@ public class ReservationController implements Initializable {
             list.add(menuItem);
         }
 
+    }
+
+    @SuppressWarnings("unchecked")
+    private void setUpTableColumn(String movieName){
+        columnMovieDates = new TableColumn("Date(s)");
+        columnMovieDates.setMinWidth(dateList.getPrefWidth());
+        columnMovieDates.setCellValueFactory(new PropertyValueFactory<Schedule, String>("date"));
+
+        dateList.setItems(getMoviesDates(movieName));
+        dateList.getColumns().addAll(columnMovieDates);
+    }
+
+    private ObservableList<Schedule> getMoviesDates(String movieName) {
+        ObservableList<Schedule> moviesDates = FXCollections.observableArrayList();
+        scheduleList.getSchedulesForMovie(movieName);
+        moviesDates.addAll(scheduleList.getScheduleList());
+        return moviesDates;
     }
 }
 

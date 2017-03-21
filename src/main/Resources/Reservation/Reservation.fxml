@@ -5,7 +5,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane prefHeight="1368.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aPresentation.EditMovie.ReservationController">
+<ScrollPane prefHeight="1368.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aPresentation.ReservationController">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1362.0" prefWidth="583.0">
          <children>
@@ -67,11 +66,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Text>
-            <TableView fx:id="dateList" layoutX="95.0" layoutY="232.0" prefHeight="252.0" prefWidth="176.0">
-              <columns>
-                <TableColumn fx:id="listDate" prefWidth="175.0" text="Date(s)" />
-              </columns>
-            </TableView>
+            <TableView fx:id="dateList" layoutX="95.0" layoutY="232.0" prefHeight="252.0" prefWidth="176.0" />
             <MenuButton fx:id="tickets" layoutX="96.0" layoutY="168.0" mnemonicParsing="false" onAction="#ticketsChosen" text="Ticket(s)" />
          </children>
       </AnchorPane>

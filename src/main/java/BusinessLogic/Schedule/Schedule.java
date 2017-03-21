@@ -6,15 +6,19 @@ package BusinessLogic.Schedule;
  */
 public class Schedule {
 
-    String movie;
-    int theaterType;
-    String date;
+    private String movie;
+    private int theaterType;
+    private String date;
 
 
     public Schedule(String movie, int theaterType, String date) {
         this.movie = movie;
         this.theaterType = theaterType;
         this.date = date;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     @Override

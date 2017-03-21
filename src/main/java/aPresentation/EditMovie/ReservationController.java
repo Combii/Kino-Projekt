@@ -36,6 +36,9 @@ public class ReservationController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         movieNameText.setText(movie.getMovieName());
 
+        setupTicketMenu(10);
+
+        tickets.getItems().addAll(FXCollections.observableArrayList(list));
     }
 
 
@@ -62,7 +65,19 @@ public class ReservationController implements Initializable {
 
 
     public void ticketsChosen(ActionEvent actionEvent) {
-        
+    }
+
+    private void setupTicketMenu(int numberOfTickets){
+        for(int i = 0; i <= numberOfTickets; i++){
+            MenuItem menuItem = new MenuItem(String.valueOf(i));
+            menuItem.setOnAction(event -> {
+                System.out.println(menuItem.getText());
+            });
+            list.add(menuItem);
+        }
+
+
+
 
     }
 }

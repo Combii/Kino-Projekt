@@ -62,8 +62,8 @@ public class ReservationController implements Initializable {
 
 
     public void ticketsChosen(ActionEvent actionEvent) {
-
         
+
     }
 }
 

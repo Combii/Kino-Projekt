@@ -12,25 +12,48 @@ import java.util.List;
 public class SQLreservation {
 
     SQLDatabase database = SQLDatabase.getDatabase();
-    Connection conn = database.getConnection();
-    PreparedStatement ps;
 
     public SQLreservation() throws SQLException {
     }
 
+    //-------------------------GET RESERVATIONS--------------------------------//
+
+
     public List<Seat> getSeatsForMovie(String movieName, Timestamp dateAndTime, int theaterType) throws SQLException {
 
-        ResultSet movieScheduleIdAndTheaterType = getMovieScheduleId(movieName,dateAndTime, theaterType);
-        movieScheduleIdAndTheaterType.next();
-        int movieScheduleId = movieScheduleIdAndTheaterType.getInt("movieScheduleID");
+        int movieScheduleId = getMovieScheduleId(movieName,dateAndTime,theaterType);
         return getSeatList(movieScheduleId);
+
+    }
+
+    //-------------------------ADD RESERVATIONS--------------------------------//
+
+    public void reserveSeats(String movieName, Timestamp dateAndTime, int theaterType, List<Seat> seatsToReserve) throws SQLException {
+
+        setIsReserved(true,seatsToReserve,movieName,dateAndTime,theaterType);
+    }
+
+    public void removeReservations(String movieName, Timestamp dateAndTime, int theaterType, List<Seat> seatsToReserve) throws SQLException {
+
+        setIsReserved(false,seatsToReserve,movieName,dateAndTime,theaterType);
+
+    }
+
+    //----------------------------PRIVATE METHODS-------------------------------//
+
+    private void setIsReserved(boolean reserve, List<Seat> seats, String movieName, Timestamp dateAndTime, int theaterType) throws SQLException {
+
+        int movieScheduleId = getMovieScheduleId(movieName,dateAndTime,theaterType);
+
+        for(Seat toReserve: seats) {
+            database.queryUpdate("UPDATE Seat SET isReserved = "+reserve+" WHERE movieScheduleID = "+movieScheduleId+" AND seatNumber = "+toReserve.getNumber()+" AND seatRow = "+toReserve.getRow()+";");
+        }
 
     }
 
     private List<Seat> getSeatList(int movieScheduleId) throws SQLException {
 
-        ps = conn.prepareStatement("SELECT seatRow,seatNumber,isReserved FROM Seat WHERE movieScheduleID = '"+movieScheduleId+"';");
-        ResultSet seat = ps.executeQuery();
+        ResultSet seat = database.query("SELECT seatRow,seatNumber,isReserved FROM Seat WHERE movieScheduleID = '"+movieScheduleId+"';");
 
         List<Seat> seats = new LinkedList<>();
 
@@ -46,17 +69,19 @@ public class SQLreservation {
         return seats;
     }
 
-    private ResultSet getMovieScheduleId(String movieName, Timestamp dateAndTime, int theaterType) {
+    private int getMovieScheduleId(String movieName, Timestamp dateAndTime, int theaterType) {
 
         try {
-            ps = conn.prepareStatement("SELECT movieScheduleID FROM MovieSchedule WHERE movieName = '"+movieName+"' AND movieDate = '"+dateAndTime+"' AND theaterType = '" + theaterType +"';");
-            return ps.executeQuery();
-
+            ResultSet movieScheduleID = database.query("SELECT movieScheduleID FROM MovieSchedule WHERE movieName = '"+movieName+"' AND movieDate = '"+dateAndTime+"' AND theaterType = '" + theaterType +"';");
+            movieScheduleID.next();
+            return movieScheduleID.getInt("movieScheduleID");
         } catch (SQLException e) {
-            return null;
+            return -1;
         }
 
     }
+
+
 
 
 }

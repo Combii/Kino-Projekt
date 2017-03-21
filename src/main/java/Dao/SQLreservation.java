@@ -40,6 +40,7 @@ public class SQLreservation {
             int seatNumber = seat.getInt("seatNumber");
             boolean isReserved = seat.getBoolean("isReserved");
             seats.add(new Seat(seatRow,seatNumber,isReserved));
+
         }
 
         return seats;

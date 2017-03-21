@@ -15,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane prefHeight="1368.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aPresentation.EditMovie.ReservationController">
+<ScrollPane prefHeight="1368.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aPresentation.EditMovie.ReservationController">
    <content>
-      <AnchorPane fx:id="dateList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1362.0" prefWidth="583.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1362.0" prefWidth="583.0">
          <children>
             <Text layoutX="246.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservations">
                <font>
@@ -68,7 +68,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Text>
-            <TableView layoutX="95.0" layoutY="232.0" prefHeight="252.0" prefWidth="176.0">
+            <TableView fx:id="dateList" layoutX="95.0" layoutY="232.0" prefHeight="252.0" prefWidth="176.0">
               <columns>
                 <TableColumn fx:id="listDate" prefWidth="175.0" text="Date(s)" />
               </columns>

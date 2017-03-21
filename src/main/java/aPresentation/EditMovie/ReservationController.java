@@ -31,6 +31,8 @@ public class ReservationController implements Initializable {
 
     private static int numberOfTickets;
 
+    public TableView dateList;
+
     private ObservableList<MenuItem> list = FXCollections.observableArrayList();
 
 

@@ -1,10 +1,10 @@
 package Dao;
 
+import BusinessLogic.Schedule.Schedule;
 import BusinessLogic.Seat;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -70,4 +70,15 @@ public class SQLreservationTest {
 
     }
 
+    @Test
+    public void getMovieSchedules() throws Exception {
+        SQLreservation sqLreservation = new SQLreservation();
+
+        List<Schedule> scheduleList = sqLreservation.getMovieSchedulesForMovie("Shrek");
+
+        System.out.println(scheduleList);
+    }
+
 }
+
+

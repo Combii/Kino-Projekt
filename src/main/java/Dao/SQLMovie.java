@@ -55,7 +55,7 @@ public class SQLMovie {
             picturePath.next();
             check = picturePath.getInt(1);
             if(check == 0){
-            uploadPictureToDB(new File(toAdd.getPicturePath()));
+                uploadPictureToDB(new File(toAdd.getPicturePath()));
             }
 
             PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + toAdd.getMovieName() + "','" + toAdd.getGenre() + "','" + toAdd.getAgeRestriction() + "','" + toAdd.getPrice() + "','" + toAdd.getPictureFileName() + "');");
@@ -85,21 +85,21 @@ public class SQLMovie {
 
     public List<Movie> getAllMovies() throws SQLException {
 
-            List<Movie> movies = new ArrayList<>();
+        List<Movie> movies = new ArrayList<>();
 
-            ps = conn.prepareStatement("SELECT * FROM Movie;");
-            ResultSet movieRs = ps.executeQuery();
+        ps = conn.prepareStatement("SELECT * FROM Movie;");
+        ResultSet movieRs = ps.executeQuery();
 
-            while(movieRs.next()) {
-                movies.add(getMovie(movieRs));
-            }
+        while(movieRs.next()) {
+            movies.add(getMovie(movieRs));
+        }
 
-            //Needed if missing picture locally
-            for (Movie movie : movies){
-                getPicture(movie.getPictureFileName());
-            }
+        //Needed if missing picture locally
+        for (Movie movie : movies){
+            getPicture(movie.getPictureFileName());
+        }
 
-            return movies;
+        return movies;
     }
 
     private Movie getMovie(ResultSet movie) throws SQLException {

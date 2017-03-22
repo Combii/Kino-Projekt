@@ -1,4 +1,6 @@
-package BusinessLogic;
+package BusinessLogic.Theater;
+
+import BusinessLogic.Seat;
 
 /**
  * Created by KO3AK on 16-03-2017.

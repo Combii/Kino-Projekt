@@ -30,40 +30,43 @@ public class SQLMovie {
             /**
              * The programmer reading this is welcome to refactor this to make it more reusable friendly ;)
              */
-            ps = conn.prepareStatement("SELECT count(1) FROM Genre WHERE genreName = '"+ toAdd.getGenre() + "';");
-            ResultSet genreName = ps.executeQuery();
-            //If zero doesn't exist. If one it does exist
-            genreName.next();
-            int check = genreName.getInt(1);
-            if(check == 0){
-                PreparedStatement ps = conn.prepareStatement("INSERT INTO Genre VALUES ('" + toAdd.getGenre() + "');");
-                ps.executeUpdate();
-            }
 
-            ps = conn.prepareStatement("SELECT count(1) FROM AgeRestriction WHERE restriction = '"+ toAdd.getAgeRestriction() + "';");
-            ResultSet ageRestriction = ps.executeQuery();
-            //If zero doesn't exist. If one it does exist
-            ageRestriction.next();
-            check = ageRestriction.getInt(1);
-            if(check == 0){
-                PreparedStatement ps = conn.prepareStatement("INSERT INTO AgeRestriction VALUES ('" + toAdd.getAgeRestriction() + "');");
-                ps.executeUpdate();
-            }
-
-            ps = conn.prepareStatement("SELECT count(1) FROM Picture WHERE pictureName = '"+ toAdd.getPicturePath() + "';");
-            ResultSet picturePath = ps.executeQuery();
-            //If zero doesn't exist. If one it does exist
-            picturePath.next();
-            check = picturePath.getInt(1);
-            if(check == 0){
-            SQLPicture.uploadPictureToDB(new File(toAdd.getPicturePath()));
-            }
+            addGenre(toAdd);
+            addAgeRestriction(toAdd);
 
             PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + toAdd.getMovieName() + "','" + toAdd.getGenre() + "','" + toAdd.getAgeRestriction() + "','" + toAdd.getPrice() + "','" + toAdd.getPictureFileName() + "');");
             ps.executeUpdate();
 
-        } catch (SQLException | FileNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    private void addGenre(Movie toAdd) throws SQLException {
+
+        ps = conn.prepareStatement("SELECT count(1) FROM Genre WHERE genreName = '"+ toAdd.getGenre() + "';");
+        ResultSet genreName = ps.executeQuery();
+        //If zero doesn't exist. If one it does exist
+        genreName.next();
+        int check = genreName.getInt(1);
+        if(check == 0){
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Genre VALUES ('" + toAdd.getGenre() + "');");
+            ps.executeUpdate();
+        }
+
+    }
+
+    private void addAgeRestriction(Movie toAdd) throws SQLException {
+
+        ps = conn.prepareStatement("SELECT count(1) FROM AgeRestriction WHERE restriction = '"+ toAdd.getAgeRestriction() + "';");
+        ResultSet ageRestriction = ps.executeQuery();
+        //If zero doesn't exist. If one it does exist
+        ageRestriction.next();
+        int check = ageRestriction.getInt(1);
+        if(check == 0){
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO AgeRestriction VALUES ('" + toAdd.getAgeRestriction() + "');");
+            ps.executeUpdate();
         }
 
     }

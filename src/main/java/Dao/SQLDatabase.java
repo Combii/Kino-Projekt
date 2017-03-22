@@ -51,8 +51,7 @@ public class SQLDatabase implements SQLDatabaseInterface {
 
     public ResultSet query(String query) throws SQLException {
         statement = SQLDatabase.connection.createStatement();
-        ResultSet res = statement.executeQuery(query);
-        return res;
+        return statement.executeQuery(query);
     }
 
     // method for Data Manipulation (DML)

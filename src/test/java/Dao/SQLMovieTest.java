@@ -1,6 +1,5 @@
 package Dao;
 
-import BusinessLogic.Movie.Movie;
 import org.junit.Test;
 
 import java.io.File;

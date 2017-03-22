@@ -1,5 +1,7 @@
 package Dao;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,35 +19,42 @@ public class SQLPicture {
         SQLDatabase database = SQLDatabase.getDatabase();
         Connection conn = database.getConnection();
 
-        String sql = "INSERT INTO Picture (picture) values (?)";
+        String sql = "INSERT INTO Picture (pictureName, picture) values (?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
+
+        statement.setString(1, file.getName());
+
+
         InputStream inputStream = new FileInputStream(file);
-        statement.setBlob(1, inputStream);
+        statement.setBlob(2, inputStream);
 
         statement.executeUpdate();
 
     }
 
 
-    public File getPicture(String movieName) throws SQLException, FileNotFoundException {
+    public File getPicture(String movieName) {
+        try {
+            SQLDatabase database = SQLDatabase.getDatabase();
 
-        SQLDatabase database = SQLDatabase.getDatabase();
+            ResultSet resultSet = database.query("SELECT * from Picture where pictureID = 2");
+            resultSet.next();
+            String fileName = new File("src/main/Resources/MoviePictures").getAbsolutePath() + "/" + resultSet.getString(2);
 
-        ResultSet resultSet = database.query("SELECT picture from Picture where pictureID = 1");
+            InputStream inputStream = resultSet.getBinaryStream(3);
 
-        InputStream binaryStream = resultSet.getBinaryStream(1);
+            File file = new File(fileName);
 
-        OutputStream outputStream = new FileOutputStream(new File(""));
+            OutputStream outputStream = new FileOutputStream(file);
 
-        int read = 0;
-        byte[] bytes = new byte[1024];
+            IOUtils.copy(inputStream, outputStream);
 
-        while ((read = inputStream.read(bytes)) != -1) {
-            outputStream.write(bytes, 0, read);
+            return file;
         }
-
+        catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
-
     }
 
     private boolean checkIfFileExist(String path){

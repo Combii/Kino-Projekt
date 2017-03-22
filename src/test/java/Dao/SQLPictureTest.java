@@ -3,6 +3,7 @@ package Dao;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 import static org.junit.Assert.*;
@@ -20,10 +21,12 @@ public class SQLPictureTest {
     }
 
     @Test
-    public void getPicture() throws SQLException {
+    public void getPicture() throws SQLException, FileNotFoundException {
         SQLPicture sqlPicture = new SQLPicture();
 
-        sqlPicture.getPicture("");
+        File file = sqlPicture.getPicture("");
+
+        System.out.println(file);
     }
 
 }

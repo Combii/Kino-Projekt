@@ -3,6 +3,7 @@ package Dao;
 import BusinessLogic.Movie.Movie;
 import org.junit.Test;
 
+import java.io.File;
 import java.sql.SQLException;
 
 /**
@@ -12,10 +13,19 @@ public class SQLMovieTest {
 
 
     @Test
-    public void testAddMovie() throws SQLException {
+    public void uploadPictureToDB() throws Exception {
+        SQLMovie sqlPicture = new SQLMovie();
 
-        SQLMovie movieAdder = new SQLMovie();
-        movieAdder.addMovie(new Movie("adaee","action", "12+", 50, ""));
+        SQLMovie.uploadPictureToDB(new File("/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/terminator.jpeg"));
+    }
+
+    @Test
+    public void getPicture() throws SQLException {
+        SQLMovie sqlPicture = new SQLMovie();
+
+        File file = sqlPicture.getPicture("shrek.jpg");
+
+        System.out.println(file);
     }
 
 

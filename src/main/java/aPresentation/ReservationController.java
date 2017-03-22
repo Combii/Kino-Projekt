@@ -78,7 +78,10 @@ public class ReservationController implements Initializable {
     private void setupTicketMenu(int numberOfTickets){
         for(int i = 1; i <= numberOfTickets; i++){
             MenuItem menuItem = new MenuItem(String.valueOf(i));
-            menuItem.setOnAction(event -> ReservationController.numberOfTickets = Integer.parseInt(menuItem.getText()));
+            menuItem.setOnAction(event -> {
+                ReservationController.numberOfTickets = Integer.parseInt(menuItem.getText());
+                tickets.setText(String.valueOf(ReservationController.numberOfTickets));
+            });
             list.add(menuItem);
         }
 

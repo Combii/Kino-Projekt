@@ -4,8 +4,7 @@ import BusinessLogic.Schedule.Schedule;
 import BusinessLogic.Seat;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;

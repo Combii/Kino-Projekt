@@ -10,7 +10,7 @@ import java.util.List;
  * Created by David Stovlbaek
  * 16 March 2017.
  */
-public class SQLCheckReservation {
+class SQLCheckReservation {
 
 
     //Deprecated

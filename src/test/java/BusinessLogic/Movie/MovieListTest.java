@@ -2,8 +2,6 @@ package BusinessLogic.Movie;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by David Stovlbaek
  * 18 March 2017.

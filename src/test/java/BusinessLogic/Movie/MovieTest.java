@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by David Stovlbaek
  * 18 March 2017.

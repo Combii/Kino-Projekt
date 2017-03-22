@@ -45,12 +45,12 @@ public class SQLreservation {
 
     //-------------------------ADD RESERVATIONS--------------------------------//
 
-    public void reserveSeats(String movieName, Timestamp dateAndTime, int theaterType, List<Seat> seatsToReserve) throws SQLException {
+    void reserveSeats(String movieName, Timestamp dateAndTime, int theaterType, List<Seat> seatsToReserve) throws SQLException {
 
         setIsReserved(true,seatsToReserve,movieName,dateAndTime,theaterType);
     }
 
-    public void removeReservations(String movieName, Timestamp dateAndTime, int theaterType, List<Seat> seatsToReserve) throws SQLException {
+    void removeReservations(String movieName, Timestamp dateAndTime, int theaterType, List<Seat> seatsToReserve) throws SQLException {
 
         setIsReserved(false,seatsToReserve,movieName,dateAndTime,theaterType);
 

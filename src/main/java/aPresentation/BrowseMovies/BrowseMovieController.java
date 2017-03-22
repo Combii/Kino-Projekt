@@ -68,7 +68,7 @@ public class BrowseMovieController implements Initializable{
                 gridPane.add(button, columnCounter, rowCounter);
 
                 columnCounter++;
-                if (columnCounter > 3) {
+                if (columnCounter > 5) {
                     columnCounter = 0;
                     rowCounter++;
                 }

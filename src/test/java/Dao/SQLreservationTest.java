@@ -5,9 +5,12 @@ import BusinessLogic.Seat;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by BorisGrunwald on 21/03/2017.

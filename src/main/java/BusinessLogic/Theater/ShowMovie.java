@@ -1,6 +1,7 @@
-package BusinessLogic;
+package BusinessLogic.Theater;
 
 import BusinessLogic.Movie.Movie;
+import BusinessLogic.Seat;
 
 import java.sql.Timestamp;
 import java.util.List;

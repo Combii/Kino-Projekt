@@ -1,6 +1,7 @@
 
-package BusinessLogic;
+package BusinessLogic.Theater;
 import BusinessLogic.Movie.Movie;
+import BusinessLogic.Seat;
 import Dao.SQLreservation;
 
 import java.sql.SQLException;

@@ -18,9 +18,7 @@ public class SmallTheater extends Theater implements Reservation {
     }
 
     public boolean isReserved(Seat seat) {
-        if(reservationList.contains(seat)) {
-            return true;
-        } else return false;
+        return reservationList.contains(seat);
     }
 
     public void removeReservation(Seat seat) {

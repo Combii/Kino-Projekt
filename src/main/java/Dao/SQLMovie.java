@@ -98,7 +98,7 @@ public class SQLMovie {
             while(movieRs.next()) {
                 movies.add(getMovie(movieRs));
             }
-            
+
             //Needed if missing picture locally
             for (Movie movie : movies){
                 SQLPicture.getPicture(movie.getPictureFileName());

@@ -39,7 +39,6 @@ public class SQLPicture {
      protected static File getPicture(String movieNameFile) {
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
-            System.out.println(movieNameFile);
             ResultSet resultSet = database.query("SELECT * from Picture where pictureName = '"+ movieNameFile +"'");
             resultSet.next();
             String fileName = new File("src/main/Resources/MoviePictures").getAbsolutePath() + "/" + resultSet.getString(1);

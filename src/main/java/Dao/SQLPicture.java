@@ -19,7 +19,7 @@ public class SQLPicture {
      */
 
 
-    public void uploadPictureToDB(File file) throws SQLException, FileNotFoundException {
+    protected static void uploadPictureToDB(File file) throws SQLException, FileNotFoundException {
         SQLDatabase database = SQLDatabase.getDatabase();
         Connection conn = database.getConnection();
 
@@ -33,23 +33,22 @@ public class SQLPicture {
         statement.setBlob(2, inputStream);
 
         statement.executeUpdate();
-
     }
 
 
-    public File getPicture(String movieName) {
+     protected static File getPicture(String movieNameFile) {
         try {
             SQLDatabase database = SQLDatabase.getDatabase();
-
-            ResultSet resultSet = database.query("SELECT * from Picture where pictureID = 2");
+            System.out.println(movieNameFile);
+            ResultSet resultSet = database.query("SELECT * from Picture where pictureName = '"+ movieNameFile +"'");
             resultSet.next();
-            String fileName = new File("src/main/Resources/MoviePictures").getAbsolutePath() + "/" + resultSet.getString(2);
+            String fileName = new File("src/main/Resources/MoviePictures").getAbsolutePath() + "/" + resultSet.getString(1);
 
             File file = new File(fileName);
 
 
             if(!file.exists()) {
-                InputStream inputStream = resultSet.getBinaryStream(3);
+                InputStream inputStream = resultSet.getBinaryStream(2);
                 OutputStream outputStream = new FileOutputStream(file);
 
                 //Using library to extract from input to output
@@ -64,7 +63,4 @@ public class SQLPicture {
         return null;
     }
 
-    private boolean checkIfFileExist(String path){
-    return false;
-    }
 }

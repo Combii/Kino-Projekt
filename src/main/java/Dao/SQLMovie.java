@@ -2,6 +2,8 @@ package Dao;
 
 import BusinessLogic.Movie.Movie;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +27,9 @@ public class SQLMovie {
 
     public void addMovie(Movie toAdd) {
         try {
+            /**
+             * The programmer reading this is welcome to refactor this to make it more reusable friendly ;)
+             */
             ps = conn.prepareStatement("SELECT count(1) FROM Genre WHERE genreName = '"+ toAdd.getGenre() + "';");
             ResultSet genreName = ps.executeQuery();
             //If zero doesn't exist. If one it does exist
@@ -45,10 +50,19 @@ public class SQLMovie {
                 ps.executeUpdate();
             }
 
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + toAdd.getMovieName() + "','" + toAdd.getGenre() + "','" + toAdd.getAgeRestriction() + "','" + toAdd.getPrice() + "','" + toAdd.getPicturePath() + "');");
+            ps = conn.prepareStatement("SELECT count(1) FROM Picture WHERE pictureName = '"+ toAdd.getPicturePath() + "';");
+            ResultSet picturePath = ps.executeQuery();
+            //If zero doesn't exist. If one it does exist
+            picturePath.next();
+            check = picturePath.getInt(1);
+            if(check == 0){
+            SQLPicture.uploadPictureToDB(new File(toAdd.getPicturePath()));
+            }
+
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES ('" + toAdd.getMovieName() + "','" + toAdd.getGenre() + "','" + toAdd.getAgeRestriction() + "','" + toAdd.getPrice() + "','" + toAdd.getPictureFileName() + "');");
             ps.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | FileNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -79,17 +93,18 @@ public class SQLMovie {
             List<Movie> movies = new ArrayList<>();
 
             ps = conn.prepareStatement("SELECT * FROM Movie;");
-            ResultSet movie = ps.executeQuery();
+            ResultSet movieRs = ps.executeQuery();
 
-            while(movie.next()) {
-                movies.add(getMovie(movie));
+            while(movieRs.next()) {
+                movies.add(getMovie(movieRs));
+            }
+            
+            //Needed if missing picture locally
+            for (Movie movie : movies){
+                SQLPicture.getPicture(movie.getPictureFileName());
             }
 
             return movies;
-    }
-
-    public void closeConn() throws SQLException {
-        conn.close();
     }
 
     private Movie getMovie(ResultSet movie) throws SQLException {

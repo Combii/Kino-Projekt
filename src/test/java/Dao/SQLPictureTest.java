@@ -16,11 +16,11 @@ public class SQLPictureTest {
     public void uploadPictureToDB() throws Exception {
         SQLPicture sqlPicture = new SQLPicture();
 
-        sqlPicture.uploadPictureToDB(new File("/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/theGrey.jpg"));
+        sqlPicture.uploadPictureToDB(new File("/Users/Combii/Dropbox/Datamatiker/3. Semester/Agil Aflevering/Kino Aflevering/src/main/Resources/MoviePictures/terminator.jpeg"));
     }
 
     @Test
-    public void getPicture() throws SQLException, FileNotFoundException {
+    public void getPicture(){
         SQLPicture sqlPicture = new SQLPicture();
 
         File file = sqlPicture.getPicture("");

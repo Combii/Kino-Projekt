@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class SQLMovie {
 
-    SQLDatabase database = SQLDatabase.getDatabase();
-    Connection conn = database.getConnection();
-    PreparedStatement ps;
+    private SQLDatabase database = SQLDatabase.getDatabase();
+    private Connection conn = database.getConnection();
+    private PreparedStatement ps;
 
     public SQLMovie() throws SQLException {
     }

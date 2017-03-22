@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-import static org.junit.Assert.*;
 
 /**
  * Created by David Stovlbaek

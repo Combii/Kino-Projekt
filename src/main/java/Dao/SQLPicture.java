@@ -45,14 +45,16 @@ public class SQLPicture {
             resultSet.next();
             String fileName = new File("src/main/Resources/MoviePictures").getAbsolutePath() + "/" + resultSet.getString(2);
 
-            InputStream inputStream = resultSet.getBinaryStream(3);
-
             File file = new File(fileName);
 
-            OutputStream outputStream = new FileOutputStream(file);
 
-            //Using library to extract from input to output
-            IOUtils.copy(inputStream, outputStream);
+            if(!file.exists()) {
+                InputStream inputStream = resultSet.getBinaryStream(3);
+                OutputStream outputStream = new FileOutputStream(file);
+
+                //Using library to extract from input to output
+                IOUtils.copy(inputStream, outputStream);
+            }
 
             return file;
         }

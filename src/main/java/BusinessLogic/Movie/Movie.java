@@ -13,14 +13,16 @@ public class Movie {
     private String genre;
 
     private String picturePath = new File("src/main/Resources/MoviePictures").getAbsolutePath();
+    private String pictureFileName;
 
 
-    public Movie(String movieName, String genre, String ageRestriction, double price, String picturePath) {
+    public Movie(String movieName, String genre, String ageRestriction, double price, String pictureName) {
         this.movieName = movieName;
         this.ageRestriction = ageRestriction;
         this.price = price;
         this.genre = genre;
-        this.picturePath += "/" + picturePath;
+        this.picturePath += "/" + pictureName;
+        removeAbsolutePath();
     }
 
     public String getMovieName() {
@@ -43,9 +45,13 @@ public class Movie {
         return picturePath;
     }
 
+    public String getPictureFileName() {
+        return pictureFileName;
+    }
+
     //Used for when uploading to DB
-    protected void removeAbsolutePath(){
-        picturePath = picturePath.substring(picturePath.lastIndexOf('/')+1, picturePath.length());
+    private void removeAbsolutePath(){
+        pictureFileName = picturePath.substring(picturePath.lastIndexOf('/')+1, picturePath.length());
     }
 
     @Override
@@ -54,6 +60,6 @@ public class Movie {
                 ", AgeRestriction: " + ageRestriction +
                 ", Price: " + price +
                 ", Genre: " + genre +
-                ", PicturePath: " + picturePath + "}";
+                ", PicturePath: " + pictureFileName + "}";
     }
 }

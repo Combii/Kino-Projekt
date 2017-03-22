@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -18,9 +17,9 @@ import java.util.List;
  */
 public class SQLMovie {
 
-    SQLDatabase database = SQLDatabase.getDatabase();
-    Connection conn = database.getConnection();
-    PreparedStatement ps;
+    private SQLDatabase database = SQLDatabase.getDatabase();
+    private Connection conn = database.getConnection();
+    private PreparedStatement ps;
 
     public SQLMovie() throws SQLException {
     }

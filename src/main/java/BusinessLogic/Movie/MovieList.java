@@ -1,7 +1,6 @@
 package BusinessLogic.Movie;
 
 import Dao.SQLMovie;
-import Dao.SQLPicture;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -24,7 +24,7 @@ public class SQLDatabase implements SQLDatabaseInterface {
         }
     }
 
-    public static SQLDatabase getDatabase() throws SQLException {
+    static SQLDatabase getDatabase() throws SQLException {
         if(database == null){
             database = new SQLDatabase();
         }
@@ -49,14 +49,14 @@ public class SQLDatabase implements SQLDatabaseInterface {
         return connection;
     }
 
-    public ResultSet query(String query) throws SQLException {
+    ResultSet query(String query) throws SQLException {
         statement = SQLDatabase.connection.createStatement();
         ResultSet res = statement.executeQuery(query);
         return res;
     }
 
     // method for Data Manipulation (DML)
-    public void queryUpdate(String query) throws SQLException {
+    void queryUpdate(String query) throws SQLException {
         statement = SQLDatabase.connection.createStatement();
         statement.executeUpdate(query);
     }

@@ -14,6 +14,10 @@ import java.sql.SQLException;
  */
 public class SQLPicture {
 
+    /**
+     * This Class is saving a picture for a movie to the online Database
+     */
+
 
     public void uploadPictureToDB(File file) throws SQLException, FileNotFoundException {
         SQLDatabase database = SQLDatabase.getDatabase();
@@ -47,6 +51,7 @@ public class SQLPicture {
 
             OutputStream outputStream = new FileOutputStream(file);
 
+            //Using library to extract from input to output
             IOUtils.copy(inputStream, outputStream);
 
             return file;

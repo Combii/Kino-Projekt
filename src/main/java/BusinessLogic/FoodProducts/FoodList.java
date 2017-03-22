@@ -17,12 +17,11 @@ public class FoodList {
         this.foodListCategory = foodListCategory;
     }
 
-    public boolean addFoodToList(String foodName, double price){
+    public void addFoodToList(String foodName, double price){
         if(foodList.contains(foodName))
-            return false;
+            return;
 
         foodList.add(new Food(foodName, price));
 
-        return true;
     }
 }

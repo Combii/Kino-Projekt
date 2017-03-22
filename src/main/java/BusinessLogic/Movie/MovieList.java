@@ -56,7 +56,6 @@ public class MovieList {
             SQLMovie sqlMovie = new SQLMovie();
 
             for (Movie movie : movieList) {
-                movie.removeAbsolutePath();
                 sqlMovie.addMovie(movie);
             }
         } catch (SQLException e) {

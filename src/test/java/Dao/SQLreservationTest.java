@@ -7,8 +7,7 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by BorisGrunwald on 21/03/2017.
@@ -16,57 +15,54 @@ import java.util.List;
 public class SQLreservationTest {
 
     SQLreservation res;
+    SQLDatabase db;
+    Random rand;
+
+    //Test movie
+    String moviename = "Shrek";
+    int theaterType = 2;
+    Timestamp timeAndDate = Timestamp.valueOf("2017-03-17 19:00:00");
 
     @Before
     public void setUp() throws SQLException {
         res = new SQLreservation();
+        db = SQLDatabase.getDatabase();
+        rand = new Random();
     }
 
 
     @Test
-    public void testReserveSeats() throws SQLException {
+    public void testReserveAndRemoveSeats() throws SQLException {
 
-        List<Seat> toReserve = new ArrayList<>();
+        List<Seat> toReserveThenRemove = getTenUniqueSeats(20,12);
 
-        Seat s1 = new Seat(1,5, false);
-        Seat s2 = new Seat(1,6, false);
+        testReserve(toReserveThenRemove);
+        testRemove(toReserveThenRemove);
 
-        toReserve.add(s1);
-        toReserve.add(s2);
+    }
 
-        String moviename = "Shrek";
-        int theaterType = 2;
-        Timestamp timeAndDate = Timestamp.valueOf("2017-03-17 19:00:00");
+    private void testRemove(List<Seat> toRemove) throws SQLException {
+
+        res.removeReservations(moviename,timeAndDate,2,toRemove);
+
+        ResultSet shouldBeZero = db.query("SELECT COUNT(*) FROM Seat WHERE movieScheduleID = 1 AND isReserved = TRUE;");
+        shouldBeZero.next();
+
+        assertEquals(0,shouldBeZero.getInt("COUNT(*)"));
+
+    }
+
+    private void testReserve(List<Seat> toReserve) throws SQLException {
 
         res.reserveSeats(moviename,timeAndDate,theaterType,toReserve);
 
+        ResultSet reservedSeats = db.query("SELECT seatNumber,seatRow FROM Seat WHERE movieScheduleID = 1 AND isReserved = TRUE;");
 
-
-
-
-    }
-
-    @Test
-    public void testRemoveReservation() throws SQLException {
-
-        List<Seat> toRemove = new ArrayList<>();
-
-        Seat s1 = new Seat(1,5, false);
-        Seat s2 = new Seat(1,6, false);
-
-        toRemove.add(s1);
-        toRemove.add(s2);
-
-        String moviename = "Shrek";
-        int theaterType = 2;
-        Timestamp timeAndDate = Timestamp.valueOf("2017-03-17 19:00:00");
-
-        res.removeReservations(moviename,timeAndDate,theaterType,toRemove);
-
-
-
-
-
+        //Check the seats in DB match the seats in toReserveThenRemove
+        while (reservedSeats.next()) {
+            Seat seatInDb = new Seat(reservedSeats.getInt("seatRow"),reservedSeats.getInt("SeatNumber"),false);
+            assertEquals(true,toReserve.contains(seatInDb));
+        }
     }
 
     @Test
@@ -76,6 +72,22 @@ public class SQLreservationTest {
         List<Schedule> scheduleList = sqLreservation.getMovieSchedulesForMovie("Shrek");
 
         System.out.println(scheduleList);
+    }
+
+    private List<Seat> getTenUniqueSeats(int maxRows, int maxNumbers) {
+
+        Set<Seat> seats = new HashSet<>();
+
+        while(seats.size() < 10) {
+            seats.add(randomSeat(maxRows,maxNumbers));
+        }
+
+        return new ArrayList<>(seats);
+
+    }
+
+    private Seat randomSeat(int maxRows, int maxNumber) {
+        return new Seat(rand.nextInt(maxRows)+1,rand.nextInt(maxNumber)+1, false);
     }
 
 }

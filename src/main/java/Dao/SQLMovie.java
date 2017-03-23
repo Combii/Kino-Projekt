@@ -61,6 +61,21 @@ public class SQLMovie {
 
     }
 
+
+    // Medmindre at de parametiserede værdier er blevet ændret, så bare sæt de samme værdier ind i tabellen igen
+    // Dette ordner vi i logic/GUI
+    public void editMovie (String name, String ageRestriction, double price, String genre) throws SQLException {
+
+        ps = conn.prepareStatement("UPDATE Movie\n" +
+                "        SET ageRestriction =" + ageRestriction +
+                ", price =" + price +
+                ", genreName =" + genre +
+                "WHERE movieName = name;");
+        ResultSet genreName = ps.executeQuery();
+
+    }
+
+
     public Movie getMovie(String name) {
 
         try {
@@ -95,5 +110,7 @@ public class SQLMovie {
     private Movie getMovie(ResultSet movie) throws SQLException {
         return new Movie(movie.getString(1),movie.getString(2),movie.getString(3),movie.getDouble(4), movie.getString(5));
     }
+
+
 
 }

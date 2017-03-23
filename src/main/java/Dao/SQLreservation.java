@@ -45,9 +45,7 @@ public class SQLreservation {
     public Boolean checkAllSeats(){
         boolean isReservedBoolean = false;
         try {
-            ps = conn.prepareStatement("SELECT * FROM Seat");
-            ResultSet rs = ps.executeQuery();
-
+            ResultSet rs = database.query("SELECT * FROM Seat");
 
             while(rs.next()){
                 int isReserved = rs.getInt(3);

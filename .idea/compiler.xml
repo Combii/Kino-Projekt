@@ -6,13 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< HEAD
+
 <processorPath useClasspath="true" />
 
         <module name="Kino Aflevering" />
 
-=======
->>>>>>> master
+
         <module name="Kino Aflevering" />
 
         <module name="Kino-Projekt" />

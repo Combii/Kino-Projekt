@@ -49,7 +49,7 @@ public class SQLMovie {
                 ps.executeUpdate();
             }
 
-            ps = conn.prepareStatement("SELECT count(1) FROM Picture WHERE pictureName = '"+ toAdd.getPicturePath() + "';");
+            ps = conn.prepareStatement("SELECT count(1) FROM Pictyure WHERE pictureName = '"+ toAdd.getPicturePath() + "';");
             ResultSet picturePath = ps.executeQuery();
             //If zero doesn't exist. If one it does exist
             picturePath.next();

@@ -10,7 +10,7 @@ import java.util.List;
  * Created by David Stovlbaek
  * 16 March 2017.
  */
-public class SQLCheckReservation {
+class SQLCheckReservation {
 
 
     //Deprecated
@@ -31,10 +31,7 @@ public class SQLCheckReservation {
             int seatRow = rs.getInt(1);
             int seatNumber = rs.getInt(2);
             int isReserved = rs.getInt(3);
-            if(isReserved == 1)
-                isReservedBoolean = true;
-            else
-                isReservedBoolean = false;
+            isReservedBoolean = isReserved == 1;
 
             rList.add(new Seat(seatRow, seatNumber, isReservedBoolean));
         }

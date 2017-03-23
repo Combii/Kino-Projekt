@@ -1,16 +1,18 @@
-package BusinessLogic;
+package BusinessLogic.Theater;
+
+import BusinessLogic.Seat;
 
 import java.util.List;
 
 /**
  * Created by BorisGrunwald on 14/03/2017.
  */
-public class SmallTheater extends Theater implements Reservation {
+public class BigTheater extends Theater implements Reservation {
 
     private List<Seat> reservationList;
 
-    public SmallTheater() {
-        super(20, 12, 2);
+    public BigTheater() {
+        super(25, 16, 1);
     }
 
     public void setReservation(Seat seat) {
@@ -18,11 +20,8 @@ public class SmallTheater extends Theater implements Reservation {
     }
 
     public boolean isReserved(Seat seat) {
-        if(reservationList.contains(seat)) {
-            return true;
-        } else return false;
+        return reservationList.contains(seat);
     }
-
     public void removeReservation(Seat seat) {
         reservationList.remove(seat);
     }

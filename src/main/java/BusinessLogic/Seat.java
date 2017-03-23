@@ -31,4 +31,24 @@ public class Seat {
     public int getRow() {
         return row;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Seat seat = (Seat) o;
+
+        if (number != seat.number) return false;
+        if (row != seat.row) return false;
+        return isReserved == seat.isReserved;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = number;
+        result = 31 * result + row;
+        result = 31 * result + (isReserved ? 1 : 0);
+        return result;
+    }
 }

@@ -16,6 +16,7 @@ public class Statistic {
         try {
             SQLreservation checkSeat = new SQLreservation();
             while(true) {
+                //if seat reserved count
                 if(checkSeat.checkAllSeats()){
                     count++;
                 }

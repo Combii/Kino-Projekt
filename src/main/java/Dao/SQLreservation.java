@@ -42,6 +42,27 @@ public class SQLreservation {
         return getSeatList(movieScheduleId);
 
     }
+    public Boolean checkAllSeats(){
+        boolean isReservedBoolean = false;
+        try {
+            ps = conn.prepareStatement("SELECT * FROM Seat");
+            ResultSet rs = ps.executeQuery();
+
+
+            while(rs.next()){
+                int isReserved = rs.getInt(3);
+                if(isReserved == 1){
+                    isReservedBoolean = true;
+                }else{
+                    isReservedBoolean = false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isReservedBoolean;
+    }
+
 
     //-------------------------ADD RESERVATIONS--------------------------------//
 

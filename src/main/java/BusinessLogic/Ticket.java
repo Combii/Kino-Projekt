@@ -1,6 +1,7 @@
 package BusinessLogic;
 
 import BusinessLogic.Movie.Movie;
+import BusinessLogic.Theater.Theater;
 
 import java.util.Date;
 
